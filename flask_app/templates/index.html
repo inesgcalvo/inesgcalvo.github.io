@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+{% block body_class %}page-home{% endblock %}
+
+{% block content %}
+<section class="app-hero">
+  <div class="app-hero-inner">
+    <span class="hero-ornament">✦</span>
+    <p class="hero-label">Portfolio &amp; Research</p>
+    <h1 class="hero-name">Inés González Calvo</h1>
+    <div class="hero-divider">
+      <span class="divider-line"></span>
+      <span class="divider-ornament">⬥</span>
+      <span class="divider-line"></span>
+    </div>
+    <h2 class="hero-title">Data Scientist &amp; Neuroscientist, Ph.D.</h2>
+    <p class="hero-subtitle">AI Senior Project Manager · Spain</p>
+    <div class="hero-cta-group">
+      <a href="{{ url_for('neuropapers') }}" class="btn btn-primary" id="btn-try-model">Try the Neuropapers Model</a>
+      <a href="{{ url_for('cv') }}"          class="btn btn-secondary" id="btn-view-cv">View Full CV</a>
+      <a href="{{ url_for('projects') }}"    class="btn btn-ghost" id="btn-projects">All Projects</a>
+    </div>
+  </div>
+</section>
+
+<section class="home-highlights">
+  <div class="highlights-inner">
+    <a href="{{ url_for('neuropapers') }}" class="highlight-card" id="hl-neuropapers">
+      <span class="hl-icon">🧠</span>
+      <h3>Neuropapers</h3>
+      <p>Predict the best journal for a neuroscience paper using ML.</p>
+      <span class="hl-arrow">→</span>
+    </a>
+    <a href="{{ url_for('cv') }}" class="highlight-card" id="hl-cv">
+      <span class="hl-icon">📄</span>
+      <h3>Curriculum Vitae</h3>
+      <p>Full academic &amp; professional history, downloadable as PDF.</p>
+      <span class="hl-arrow">→</span>
+    </a>
+    <a href="{{ url_for('projects') }}" class="highlight-card" id="hl-projects">
+      <span class="hl-icon">⚗️</span>
+      <h3>Projects</h3>
+      <p>Breed identifier, bulldozer pricing, and more data science work.</p>
+      <span class="hl-arrow">→</span>
+    </a>
+  </div>
+</section>
+{% endblock %}

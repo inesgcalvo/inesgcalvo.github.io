@@ -1,0 +1,416 @@
+{% extends "base.html" %}
+
+{% block title %}Curriculum Vitae{% endblock %}
+{% block meta_desc %}Full CV of Inés González Calvo, Ph.D. — Data Scientist, Neuroscientist, AI Project Manager. Work experience, publications, education, and skills.{% endblock %}
+{% block body_class %}page-cv{% endblock %}
+
+{% block extra_head %}
+<style>
+  @media print {
+    .app-nav, .app-footer, .cv-actions, .grain-overlay { display: none !important; }
+    .main-content { padding-top: 0; }
+    .cv-page { box-shadow: none; }
+    body { background: white; font-size: 11pt; }
+    .cv-section { page-break-inside: avoid; }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="cv-wrapper">
+
+  <!-- Actions bar -->
+  <div class="cv-actions" id="cv-actions">
+    <div class="cv-actions-inner">
+      <span class="cv-actions-label">Curriculum Vitae</span>
+      <button class="btn btn-outline-dark btn-sm" id="btn-print-cv" onclick="window.print()">
+        ⬇ Download / Print PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- CV Document -->
+  <article class="cv-page" id="cv-page">
+
+    <!-- Header -->
+    <header class="cv-header">
+      <div class="cv-header-main">
+        <h1 class="cv-name">Inés González Calvo</h1>
+        <p class="cv-role">Data Scientist &amp; Neuroscientist, Ph.D.</p>
+        <div class="cv-contact-line">
+          <span>inglez@gmail.com</span>
+          <span class="cv-sep">·</span>
+          <a href="https://github.com/inesgcalvo" target="_blank">github.com/inesgcalvo</a>
+          <span class="cv-sep">·</span>
+          <a href="https://www.linkedin.com/in/ines-g-calvo" target="_blank">LinkedIn</a>
+          <span class="cv-sep">·</span>
+          <a href="https://orcid.org/0000-0002-2652-2160" target="_blank">ORCID 0000-0002-2652-2160</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Nav anchors (screen only) -->
+    <nav class="cv-toc no-print">
+      <a href="#cv-about">About</a>
+      <a href="#cv-work">Experience</a>
+      <a href="#cv-skills">Skills</a>
+      <a href="#cv-education">Education</a>
+      <a href="#cv-languages">Languages</a>
+      <a href="#cv-publications">Publications</a>
+      <a href="#cv-communications">Communications</a>
+      <a href="#cv-grants">Grants</a>
+    </nav>
+
+    <!-- About -->
+    <section class="cv-section" id="cv-about">
+      <h2 class="cv-section-title">About</h2>
+      <div class="cv-section-body">
+        <p>I have always been fascinated by neurons, their complexity and the way they connect to form intricate networks. Over the years, I have enjoyed producing, analyzing, and ultimately publishing data on synapses — the structures that enable communication between neurons. In 2023, I decided to move into industry to continue pursuing my passion: research involving structured and/or unstructured data.</p>
+        <p class="cv-highlight"><strong>Work-style:</strong> Able to learn new knowledge and adapt quickly to new environments. Strong independent work style and excellent teamwork skills. Well-organized and passionate.</p>
+      </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section class="cv-section" id="cv-work">
+      <h2 class="cv-section-title">Work Experience</h2>
+      <div class="cv-section-body">
+        <div class="cv-entry">
+          <div class="cv-entry-meta">
+            <span class="cv-entry-date">2026 – present</span>
+            <span class="cv-entry-place">VetMonitor · Madrid, Spain</span>
+          </div>
+          <h3 class="cv-entry-title">AI Senior Project Manager</h3>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-meta">
+            <span class="cv-entry-date">2023 – 2025</span>
+            <span class="cv-entry-place">Code Sherpas · Barcelona, Spain</span>
+          </div>
+          <h3 class="cv-entry-title">Machine Learning Engineer</h3>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-meta">
+            <span class="cv-entry-date">2021 – 2022</span>
+            <span class="cv-entry-place">IBiS, Universidad de Sevilla · Sevilla, Spain</span>
+          </div>
+          <h3 class="cv-entry-title">Researcher</h3>
+          <p class="cv-entry-desc">Advisor: Rafael Fernández-Chacón. The proteins CSPα &amp; SCAMP5 inside and outside the synapse.</p>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-meta">
+            <span class="cv-entry-date">2019 – 2021</span>
+            <span class="cv-entry-place">IINS, Université de Bordeaux · Bordeaux, France</span>
+          </div>
+          <h3 class="cv-entry-title">Researcher</h3>
+          <p class="cv-entry-desc">Advisor: Daniel Choquet. AMPA Receptor Lateral Movement During Synaptic Long-Term Depression.</p>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-meta">
+            <span class="cv-entry-date">2018 – 2019</span>
+            <span class="cv-entry-place">CIRB, Collège de France · Paris, France</span>
+          </div>
+          <h3 class="cv-entry-title">Postdoctoral Researcher</h3>
+          <p class="cv-entry-desc">Advisor: Fekrije Selimi. Does the protein SUSD4 have a hippocampal function?</p>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-meta">
+            <span class="cv-entry-date">2014 – 2018</span>
+            <span class="cv-entry-place">CIRB, Collège de France · Paris, France</span>
+          </div>
+          <h3 class="cv-entry-title">PhD Researcher</h3>
+          <p class="cv-entry-desc">Advisor: Fekrije Selimi. Sushi domain-containing protein 4 controls synaptic plasticity and motor learning.</p>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-meta">
+            <span class="cv-entry-date">2013 – 2014</span>
+            <span class="cv-entry-place">IBENS, École Normale Supérieure · Paris, France</span>
+          </div>
+          <h3 class="cv-entry-title">6-Month Intern</h3>
+          <p class="cv-entry-desc">Advisor: Païkan Marcaggi. Dendritic Electrical Properties Investigated by Optical Methods.</p>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-meta">
+            <span class="cv-entry-date">2011 – 2012</span>
+            <span class="cv-entry-place">INSERM U825 · Toulouse, France</span>
+          </div>
+          <h3 class="cv-entry-title">6-Month Intern</h3>
+          <p class="cv-entry-desc">Advisor: Isabelle Loubinoux. Investigation of the Competition Between Cell/Surface and Cell/Cell Interactions During Neuronal Cell Culture On A Micro-Engineered Surface.</p>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-meta">
+            <span class="cv-entry-date">2011</span>
+            <span class="cv-entry-place">Université Paul Sabatier · Toulouse, France</span>
+          </div>
+          <h3 class="cv-entry-title">3-Month Intern</h3>
+          <p class="cv-entry-desc">Advisor: Christel Lutz.</p>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-meta">
+            <span class="cv-entry-date">2010 – 2011</span>
+            <span class="cv-entry-place">CBD, Université Paul Sabatier · Toulouse, France</span>
+          </div>
+          <h3 class="cv-entry-title">3-Month Intern</h3>
+          <p class="cv-entry-desc">Advisor: Hélène Chanut-Delalande.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="cv-section" id="cv-skills">
+      <h2 class="cv-section-title">Skills</h2>
+      <div class="cv-section-body">
+        <h3 class="cv-subsection-title">Technical Skills</h3>
+        <div class="cv-skills-grid">
+          <div class="cv-skill-group">
+            <span class="cv-skill-cat">Python</span>
+            <p>Pandas, NumPy, SciPy, Dask, Matplotlib, Seaborn, Plotly, Streamlit, Statsmodels, PyMC3, scikit-learn, XGBoost, TensorFlow, Keras, Transformers, NLTK, biopython, PySpark, BeautifulSoup, Requests, pytest</p>
+          </div>
+          <div class="cv-skill-group">
+            <span class="cv-skill-cat">Web &amp; Data</span>
+            <p>HTML, JavaScript, CSS, MySQL, SQLAlchemy, Docker, Linux</p>
+          </div>
+          <div class="cv-skill-group">
+            <span class="cv-skill-cat">Scientific Software</span>
+            <p>Igor Pro, ImageJ, Clampex, GraphPad Prism, Adobe Illustrator, Adobe Photoshop</p>
+          </div>
+        </div>
+
+        <h3 class="cv-subsection-title">Scientific Skills</h3>
+        <ul class="cv-list">
+          <li><strong>Electrophysiology:</strong> patch clamp ex vivo, optogenetics in vitro &amp; calcium imaging in vitro.</li>
+          <li><strong>Cell Biology:</strong> cell culture (iMEFs, LUHMES, …), immunocytochemistry, immunohistochemistry &amp; fluorescence.</li>
+          <li><strong>Molecular Biology:</strong> cloning, RT-qPCR, in situ hybridization &amp; genotyping.</li>
+          <li><strong>Histology:</strong> vibratome and microtome, preparation of fixed slices &amp; acute slices.</li>
+          <li><strong>Microscopy:</strong> 2-photon, electronic, widefield, fluorescence, confocal, spinning-disc &amp; time-lapse.</li>
+          <li><strong>Animal Experimentation:</strong> mice brain stereotaxic injections &amp; intracardiac perfusion.</li>
+          <li><strong>Animal Behavior:</strong> Footprint test, Rotarod, Y-maze memory tests, Open Field, adhesive test, grip test &amp; staircase test.</li>
+          <li>Biostatistics, Data Analysis &amp; Data Representation.</li>
+        </ul>
+
+        <h3 class="cv-subsection-title">Personal Skills</h3>
+        <p>Research · Written Communication · Critical Thinking · Leadership · Project Management · Collaboration · Public Speaking</p>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="cv-section" id="cv-education">
+      <h2 class="cv-section-title">Education</h2>
+      <div class="cv-section-body">
+        <div class="cv-entry">
+          <div class="cv-entry-meta">
+            <span class="cv-entry-date">2018</span>
+            <span class="cv-entry-place">Sorbonne Université (Paris VI) · Paris, France</span>
+          </div>
+          <h3 class="cv-entry-title">PhD in Neurosciences <sup>*</sup></h3>
+          <p class="cv-entry-desc"><sup>*</sup>Spanish equivalent by Universidad de Sevilla, 2022.</p>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-meta">
+            <span class="cv-entry-date">2014</span>
+            <span class="cv-entry-place">Sorbonne Université (Paris VI) · Paris, France</span>
+          </div>
+          <h3 class="cv-entry-title">Master's degree in Neurosciences</h3>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-meta">
+            <span class="cv-entry-date">2013</span>
+            <span class="cv-entry-place">Universidad Complutense de Madrid (UCM) · Madrid, Spain</span>
+          </div>
+          <h3 class="cv-entry-title">Bachelor's degree in Biology</h3>
+        </div>
+
+        <h3 class="cv-subsection-title">Other Training</h3>
+        <ul class="cv-list">
+          <li><strong>DEC 2023</strong> — Data Analysis Bootcamp / Ironhack / Granted by Page Group #SheTechs</li>
+          <li><strong>MAR 2023</strong> — Complete Machine Learning &amp; Data Science Bootcamp / Udemy &amp; ZTM</li>
+          <li><strong>JAN 2023</strong> — Full Stack Web Development / LinkedIn</li>
+          <li><strong>AUG 2020</strong> — Animal Experimentation level II (Rodents Surgery) / Bordeaux, France</li>
+          <li><strong>OCT 2017</strong> — Animal Experimentation level I (Project conception) / Paris, France</li>
+          <li><strong>MAY 2012</strong> — Driving B License / Madrid, Spain</li>
+          <li><strong>OCT 2008</strong> — Open Water Diver PADI</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Languages -->
+    <section class="cv-section" id="cv-languages">
+      <h2 class="cv-section-title">Languages</h2>
+      <div class="cv-section-body">
+        <div class="cv-lang-grid">
+          <div class="cv-lang-item">
+            <span class="cv-lang-name">Spanish</span>
+            <span class="cv-lang-level">Native</span>
+            <div class="cv-lang-bar"><div class="cv-lang-fill" style="width:100%"></div></div>
+          </div>
+          <div class="cv-lang-item">
+            <span class="cv-lang-name">French</span>
+            <span class="cv-lang-level">Bilingual</span>
+            <div class="cv-lang-bar"><div class="cv-lang-fill" style="width:95%"></div></div>
+          </div>
+          <div class="cv-lang-item">
+            <span class="cv-lang-name">English</span>
+            <span class="cv-lang-level">Fluent</span>
+            <div class="cv-lang-bar"><div class="cv-lang-fill" style="width:85%"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section class="cv-section" id="cv-publications">
+      <h2 class="cv-section-title">Publications</h2>
+      <div class="cv-section-body">
+        <div class="cv-pub">
+          <p><span class="cv-pub-author">González-Calvo I</span>, Ciceron M, Bessereau J-L &amp; Selimi F. <strong>(2022)</strong><br>
+          <em>Synapse formation and function across species: ancient roles for CCP, CUB and TSP-1 protein domains.</em><br>
+          (Review) Front. Neurosci. 16:866444 · <a href="https://www.frontiersin.org/articles/10.3389/fnins.2022.866444/full" target="_blank">DOI: 10.3389/fnins.2022.866444 ↗</a></p>
+        </div>
+        <div class="cv-pub">
+          <p><span class="cv-pub-author">González-Calvo I</span>, Iyer K, Carquin M, Khayachi A, Giuliani FA, Sigoillot SM, Vincent J, Séveno M, Veleanu M, Tahraoui S, Albert M, Vigy O, Bosso-Lefèvre C, Nadjar Y, Dumoulin A, Triller A, Bessereau JL, Rondi-Reig L, Isope P &amp; Selimi F. <strong>(2021)</strong><br>
+          <em>Sushi domain-containing protein 4 controls synaptic plasticity and motor learning.</em><br>
+          eLife 10:e65712 · <a href="https://elifesciences.org/articles/65712" target="_blank">DOI: 10.7554/eLife.65712 ↗</a></p>
+        </div>
+        <div class="cv-pub">
+          <p><span class="cv-pub-author">González-Calvo I</span> &amp; Selimi F. <strong>(2018)</strong><br>
+          <em>Expression and role of Galectin-3 in the postnatal development of the cerebellum.</em><br>
+          bioRxiv. 364760 · <a href="https://doi.org/10.1101/364760" target="_blank">DOI: 10.1101/364760 ↗</a></p>
+        </div>
+        <div class="cv-pub">
+          <p>Sigoillot SM, Iyer K, Binda F, <span class="cv-pub-author">González-Calvo I</span>, Talleur M, Vodjdani G, Isope P &amp; Selimi F. <strong>(2015)</strong><br>
+          <em>Secreted Protein C1QL1 and Its Receptor BAI3 Control the Synaptic Connectivity of Excitatory Inputs Converging on Cerebellar Purkinje Cells.</em><br>
+          Cell Reports 10:820 · <a href="https://linkinghub.elsevier.com/retrieve/pii/S2211-1247(15)00059-5" target="_blank">DOI: 10.1016/j.celrep.2015.01.034 ↗</a></p>
+        </div>
+        <div class="cv-pub">
+          <p>Béduer A, <span class="cv-pub-author">Gonzales-Calvo I</span>, Vieu C, Loubinoux I &amp; Vaysse L. <strong>(2013)</strong><br>
+          <em>Investigation of The Competition Between Cell/Surface And Cell/Cell Interactions During Neuronal Cell Culture On A Micro-Engineered Surface.</em><br>
+          Macromol Biosci. 13(11):1546–55 · <a href="https://doi.org/10.1002/mabi.201300202" target="_blank">DOI: 10.1002/mabi.201300202 ↗</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Communications -->
+    <section class="cv-section" id="cv-communications">
+      <h2 class="cv-section-title">Communications</h2>
+      <div class="cv-section-body">
+        <h3 class="cv-subsection-title">Oral Presentations</h3>
+        <div class="cv-com">
+          <span class="cv-com-date">JAN 2018</span>
+          <div>
+            <p><em>When AMPA Receptors Meet Complement: Modulation of GluA2 Turnover By SUSD4</em></p>
+            <p class="cv-com-event">4th Cerebellum Club (France Cerebellum Club) · Paris, France · CIRB, Collège de France</p>
+          </div>
+        </div>
+        <div class="cv-com">
+          <span class="cv-com-date">SEP 2017</span>
+          <div>
+            <p><em>The Developmental Molecular Brake on AMPAR Synaptic Accumulation Leads to Learning And Memory Deficits</em></p>
+            <p class="cv-com-event">Axon Guidance, Circuit Development and Regeneration · Klosterneuburg, Austria · IST Austria</p>
+          </div>
+        </div>
+        <div class="cv-com">
+          <span class="cv-com-date">MAY 2017</span>
+          <div>
+            <p><em>Removing The Developmental Molecular Brake on AMPAR Synaptic Accumulation Leads to Learning And Memory Deficits</em></p>
+            <p class="cv-com-event">15th Neuronal Networks Development Club · Bordeaux, France · Centre de Génomique Fonctionnelle</p>
+          </div>
+        </div>
+
+        <h3 class="cv-subsection-title">Poster Presentations</h3>
+        <div class="cv-com">
+          <span class="cv-com-date">JUL 2019</span>
+          <div>
+            <p><em>Activity-Dependent Control of AMPA Receptor Degradation by Sushi Domain Protein SUSD4</em></p>
+            <p class="cv-com-event">Cerebellar Mechanisms for Movement, Learning and Cognition in Health and Disease · Les Diablerets, Switzerland · Gordon Research Conference</p>
+          </div>
+        </div>
+        <div class="cv-com">
+          <span class="cv-com-date">NOV 2018</span>
+          <div>
+            <p><em>Activity-Dependent Control of AMPA Receptor Degradation by Sushi Domain Protein SUSD4</em></p>
+            <p class="cv-com-event">Neuroscience 2018 · San Diego, USA · Society for Neuroscience</p>
+          </div>
+        </div>
+        <div class="cv-com">
+          <span class="cv-com-date">JUL 2018</span>
+          <div>
+            <p><em>Activity-Dependent Control of AMPA Receptor Degradation by Sushi Domain Protein SUSD4</em></p>
+            <p class="cv-com-event">11th FENS Forum of Neuroscience · Berlin, Germany · German Neuroscience Society</p>
+          </div>
+        </div>
+        <div class="cv-com">
+          <span class="cv-com-date">SEP 2017</span>
+          <div>
+            <p><em>Removing The Developmental Molecular Brake on AMPAR Synaptic Accumulation Leads to Learning And Memory Deficits</em></p>
+            <p class="cv-com-event">Axon Guidance, Circuit Development and Regeneration · Klosterneuburg, Austria · IST Austria</p>
+          </div>
+        </div>
+        <div class="cv-com">
+          <span class="cv-com-date">MAY 2017</span>
+          <div>
+            <p><em>Removing The Developmental Molecular Brake on AMPAR Synaptic Accumulation Leads to Learning And Memory Deficits</em></p>
+            <p class="cv-com-event">Neurofrance 2017 · Bordeaux, France · Centre de Génomique Fonctionnelle, Université de Bordeaux</p>
+          </div>
+        </div>
+        <div class="cv-com">
+          <span class="cv-com-date">JAN 2017</span>
+          <div>
+            <p><em>Removing The Developmental Molecular Brake on AMPAR Synaptic Accumulation Leads to Learning And Memory Deficits</em></p>
+            <p class="cv-com-event">3rd Cerebellum Day (France Cerebellum Club) · Paris, France · IBENS, École Normale Supérieure</p>
+          </div>
+        </div>
+        <div class="cv-com">
+          <span class="cv-com-date">JUL 2016</span>
+          <div>
+            <p><em>Complement Control Related Protein Susd4 Promotes the Stabilization and Functional Maturation of Climbing Fiber/Purkinje Cell Synapses in The Cerebellar Cortex</em></p>
+            <p class="cv-com-event">10th FENS Forum of Neuroscience · Copenhagen, Denmark · Danish Society for Neuroscience</p>
+          </div>
+        </div>
+        <div class="cv-com">
+          <span class="cv-com-date">NOV 2015</span>
+          <div>
+            <p><em>Role of Complement Lectin Pathway-Related Genes In Synapse Formation And Specificity In The Olivo-Cerebellar Network</em></p>
+            <p class="cv-com-event">2nd Cerebellum Day (France Cerebellum Club) · Paris, France · Université Pierre et Marie Curie</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grants -->
+    <section class="cv-section" id="cv-grants">
+      <h2 class="cv-section-title">Grants &amp; Awards</h2>
+      <div class="cv-section-body">
+        <div class="cv-entry">
+          <div class="cv-entry-meta">
+            <span class="cv-entry-date">2023</span>
+          </div>
+          <h3 class="cv-entry-title">#SheTechs by Page Group</h3>
+          <p class="cv-entry-desc">Grant for women in tech and entrepreneurship · 12,000 €</p>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-meta">
+            <span class="cv-entry-date">2022</span>
+            <span class="cv-entry-place">Universidad de Sevilla · Sevilla, Spain</span>
+          </div>
+          <h3 class="cv-entry-title">Postdoctoral de la Junta de Andalucía</h3>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-meta">
+            <span class="cv-entry-date">2011</span>
+            <span class="cv-entry-place">INSERM U825 · Toulouse, France</span>
+          </div>
+          <h3 class="cv-entry-title">Erasmus Placement</h3>
+          <p class="cv-entry-desc">Cerebral Imagery and Neurologic Handicap</p>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-meta">
+            <span class="cv-entry-date">2010 – 2011</span>
+            <span class="cv-entry-place">Université Paul Sabatier (Toulouse III) · Toulouse, France</span>
+          </div>
+          <h3 class="cv-entry-title">Erasmus Exchange</h3>
+        </div>
+      </div>
+    </section>
+
+  </article><!-- /cv-page -->
+</div><!-- /cv-wrapper -->
+{% endblock %}

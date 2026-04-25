@@ -1,249 +1,227 @@
-<!DOCTYPE HTML>
-<!--
-Text for nothing
--->
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="docsearch:language" content="es">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="author" content="Inés G. Calvo">
-	<link rel="shortcut icon" href="img/logo_inesgcalvo.png">
-	<link rel="stylesheet" href="css/style.css">
-	<script src="js/main.js"></script>
-	<title> Inés G. Calvo </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Inés G. Calvo">
+  <meta name="description" content="Inés González Calvo — Data Scientist & Neuroscientist. Portfolio, CV, and AI-powered projects.">
+  <title>Inés G. Calvo · Data Scientist & Neuroscientist</title>
+  <link rel="shortcut icon" href="img/logo_inesgcalvo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-	<header>
-		<a name="home" id="home"></a>
-		<h3><br />Inés González Calvo, Ph.D.</h3>
-		<h5>Data Scientist & Neuroscientist</h5>
-	</header>
-	<nav>
-		<a href="#about"><button>About me</button></a>
-		<a href="#work"><button>Work Experience</button></a>
-		<a href="#skills"><button>Skills</button></a>
-		<a href="#education"><button>Education</button></a>
-		<a href="#languages"><button>Languages</button></a>
-		<a href="#publications"><button>Publications</button></a>
-		<a href="#communications"><button>Communications</button></a>
-		<a href="#grants"><button>Grants</button></a>
-		<a href="#contact"><button>Contact</button></a>
-		<h4>Find me </h4>
-		<a href="https://github.com/inesgcalvo"><img class="fit-logo" src="img/logo_github.png"></a>
-		<a href="https://www.linkedin.com/in/ines-g-calvo"><img class="fit-logo" src="img/logo_linkedin.png"></a>
 
-		<section><a name="about" id="about"></a>
-			<h4>About me</h4>
-			<text>I have always been fascinated by neurons, their complexity and the way they connect to form intricate
-				networks.
-				Over the years, I have enjoyed producing, analyzing, and ultimately, publishing data on synapses, the
-				structures that enable communication between neurons.
-				In 2023, I decided to move into industry to continue pursuing my passion: research involving structured
-				and/or unstructured data.<br>
-				<h5>Work-style: </h5>Able to learn new knowledge and adapt quickly to new environments. Strong
-				independent work style and excellent teamwork skills. Well-organized and passionate.
-			</text><br><a href="#home"><button>Home</button></a>
-		</section><br>
+  <!-- Particle canvas background -->
+  <canvas id="neuron-canvas"></canvas>
 
-		<section><a name="work" id="work"></a>
-			<h4>Work Experience</h4><text>
-				* 2026 - present / AI Senior Project Manager / VetMonitor / Madrid, Spain.<br><br>
-				* 2023 - 2025 / Machine Learning Engineer / Code Sherpas / Barcelona, Spain.<br><br>
-				* 2021 – 2022 / Researcher / Advisor: Rafael Fernández-Chacón / IBiS, Universidad de Sevilla / Sevilla,
-				Spain.
-				The proteins CSPa & SCAMP5 inside and outside the synapse.<br><br>
-				* 2019 – 2021 / Researcher / Advisor: Daniel Choquet / IINS, Université de Bordeaux / Bordeaux, France.
-				AMPA Receptor Lateral Movement During Synaptic Long-Term Depression.<br><br>
-				* 2018 – 2019 / Postdoctoral Researcher / Advisor: Fekrije Selimi / CIRB, Collège de France / Paris,
-				France.
-				Does the proteins SUSD4 have an hippocampal function ? <br><br>
-				* 2014 – 2018 / PhD / Advisor: Fekrije Selimi / CIRB, Collège de France / Paris, France.
-				Sushi domain-containing protein 4 controls synaptic plasticity and motor learning.<br><br>
-				* 2013 – 2014 / 6-month internship/ Advisor: Païkan Marcaggi / IBENS, École Normale Supérieure / Paris,
-				France.
-				Dendritic Electrical Properties Investigated by Optical Methods.<br><br>
-				* 2011 – 2012 / 6-month internship / Advisor: Isabelle Loubinoux / INSERM U825 / Toulouse, France.
-				Investigation of The Competition Between Cell/Surface and Cell/Cell Interactions During Neuronal Cell
-				Culture On A Micro-Engineered Surface.<br><br>
-				* 2011 / 3-month internship / Advisor: Christel Lutz / Université Paul Sabatier / Toulouse,
-				France.<br><br>
-				* 2010 – 2011 / 3-month internship / Hélène Chanut-Delalande / CBD, Université Paul Sabatier / Toulouse,
-				France.
-			</text><br><a href="#home"><button>Home</button></a>
-		</section><br>
+  <!-- Decorative grain overlay -->
+  <div class="grain-overlay"></div>
 
-		<section><a name="skills" id="skills"></a>
-			<h4>Skills</h4>
-			<text>Python: Pandas, NumPy, SciPy, Dask, Matplotlib, Seaborn, Plotly, Streamlit, Statsmodels, PyMC3,
-				scikit-learn, XGBoost, TensorFlow, Keras, Transformers, NLTK, biopython, PySpark, BeautifulSoup,
-				Requests, pytest, ... <br>Biostatistics, Image Quantifications,
-				html, JavaScript, CSS, MySQL, Igor Pro, ImageJ, Clampex, ImageJ, Linux, Docker, Adobe Illustrator,
-				Adobe Photoshop, GraphPad Prism</text>
-			<h5>Scientific Skills: </h5><text>
-				Electrophysiology: patch clamp ex vivo, optogenetics in vitro & calcium imaging in vitro.<br><br>
-				Cell biology: Cell culture (iMEFs, LUHMES, …), immunocitochemistry, immunohistochemistry &
-				fluorescence.<br><br>
-				Molecular biology: cloning, RT-qPCR, in situ hybridization & genotyping.<br><br>
-				Histology: use of vibratome and microtome, preparation of fixed slices & preparation of acute
-				slices.<br><br>
-				Microscopy: 2-photon, electronic, widefield, fluorescence, confocal, spinning-disc & time-lapse.<br><br>
-				Animal experimentation: mice brain stereotaxic injections & intracardiac perfusion.<br><br>
-				Animal behavior: Footprint test, Rotarod test, Y-maze memory tests, Open Field, adhesive test, grip test
-				& staircase test.<br><br>
-				Biostatistics, Data Analysis & Data Representation of all the precedent types of data.
-				<h5>Personal Skills: </h5><text>Research, Writting Communication, Critical Thinking, Leadership, Project
-					Management, Collaboration and Public Speaking, …
-				</text><br><a href="#home"><button>Home</button></a>
-		</section><br>
+  <!-- Navigation -->
+  <nav class="portal-nav" id="portal-nav">
+    <div class="nav-inner">
+      <span class="nav-monogram">IGC</span>
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="flask_app/" class="nav-link nav-cta" id="cv-link">Curriculum Vitae</a></li>
+      </ul>
+      <div class="nav-socials">
+        <a href="https://github.com/inesgcalvo" target="_blank" class="social-icon" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .268.18.58.688.482C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/ines-g-calvo" target="_blank" class="social-icon" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://orcid.org/0000-0002-2652-2160" target="_blank" class="social-icon" aria-label="ORCID">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.484 3.872-3.722 0-2.016-1.284-3.722-3.872-3.722h-2.297z"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
 
-		<section><a name="education" id="education"></a>
-			<h4>Education</h4>
-			<text>
-				- 2018 / PhD in Neurosciences <sup>*</sup> / Sorbonne Université (Paris VI) / Paris, France<br>
-				<sup>*</sup> Spanish equivalent by Universidad de Sevilla, 2022<br><br>
-				- 2014 / Master’s degree in Neurosciences / Sorbonne Université (Paris VI) / Paris, France<br><br>
-				- 2013 / Bachelor’s degree in Biology / Universidad Complutense de Madrid (UCM) / Madrid,
-				Spain<br><br></text>
-			<h5>Other Formation: </h5><text>
-				- DEC 2023 / Data Analysis Bootcamp / Ironhack / Granted by Page Group #SheTechs<br><br>
-				- MAR 2023 / Complete Machine Learning & Data Science Bootcamp 2023 / Ûdemy & ZTM<br><br>
-				- JAN 2023 / Full Stack web development / Linkedin<br><br>
-				- AUG 2020 / Animal Experimentation level II (Rodents Surgery) / Bordeaux, France<br><br>
-				- OCT 2017 / Animal Experimentation level I (Project conception) / Paris, France<br><br>
-				- MAY 2012 / Driving B License / Madrid, Spain<br><br>
-				- OCT 2008 / Open Water Diver de PADI
-			</text><br><a href="#home"><button>Home</button></a>
-		</section><br>
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-ornament">✦</div>
+      <p class="hero-label">Portfolio</p>
+      <h1 class="hero-name">Inés González Calvo</h1>
+      <div class="hero-divider">
+        <span class="divider-line"></span>
+        <span class="divider-ornament">⬥</span>
+        <span class="divider-line"></span>
+      </div>
+      <h2 class="hero-title">Data Scientist &amp; Neuroscientist</h2>
+      <p class="hero-subtitle">Ph.D. · Spain</p>
+      <div class="hero-cta-group">
+        <a href="#projects" class="btn btn-primary" id="btn-projects">View Projects</a>
+        <a href="flask_app/" class="btn btn-secondary" id="btn-cv">Curriculum Vitae</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span class="scroll-line"></span>
+      <span class="scroll-text">scroll</span>
+    </div>
+  </section>
 
-		<section><a name="languages" id="languages"></a>
-			<h4>Languages</h4><text>Spanish: native<br>French: bilingual<br>English: fluent<br>
-			</text><a href="#home"><button>Home</button></a>
-		</section><br>
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <h2 class="section-title">About</h2>
+        <span class="section-rule"></span>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="lead-text">I have always been fascinated by neurons, their complexity and the way they connect to form intricate networks.</p>
+          <p>Over the years, I have enjoyed producing, analyzing, and ultimately publishing data on synapses — the structures that enable communication between neurons. In 2023, I moved into industry to continue pursuing my passion: research involving structured and unstructured data.</p>
+          <p>My work combines deep neuroscience expertise with modern machine learning, allowing me to bridge the worlds of academic research and applied AI.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-number">5+</span>
+            <span class="stat-label">Publications</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Years Research</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Languages</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">AI</span>
+            <span class="stat-label">Senior PM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-		<section><a name="publications" id="publications"></a>
-			<h4>Publications</h4><text>
-				• <u>González-Calvo I</u>, Ciceron M, Bessereau J-L & Selimi F.<strong>(2022)</strong><br>
-				<em>Synapse formation and function across species: ancient roles for CCP, CUB and TSP-1 protein
-					domains.</em><br>
-				(Review) Front. Neurosci. 16:866444 DOI:<a
-					href="https://www.frontiersin.org/articles/10.3389/fnins.2022.866444/full">10.3389/fnins.2022.866444</a><br><br>
-				• <u>González-Calvo I</u>, Iyer K, Carquin M, Khayachi A, Giuliani FA, Sigoillot SM, Vincent J, Séveno
-				M, Veleanu M, Tahraoui S,
-				Albert M, Vigy O, Bosso-Lefèvre C, Nadjar Y, Dumoulin A, Triller A, Bessereau JL, Rondi-Reig L, Isope P
-				& Selimi F. <strong>(2021)</strong><br>
-				<em>Sushi domain-containing protein 4 controls synaptic plasticity and motor learning.</em><br>
-				eLife 10:e65712 DOI: <a href="https://elifesciences.org/articles/65712">10.7554/eLife.65712</a><br><br>
-				• <u>González-Calvo I</u> & Selimi F. <strong>(2018)</strong><br>
-				<em>Expression and role of Galectin-3 in the postnatal development of the cerebellum.</em><br>
-				bioRxiv. 364760 DOI: <a href="https://doi.org/10.1101/364760">10.1101/364760</a><br><br>
-				• Sigoillot SM, Iyer K, Binda F, <u>González-Calvo I</u>, Talleur M, Vodjdani G, Isope P & Selimi F.
-				<strong>(2015)</strong><br>
-				<em>Secreted Protein C1QL1 and Its Receptor BAI3 Control the Synaptic Connectivity of Excitatory Inputs
-					Converging on Cerebellar Purkinje Cells.</em><br>
-				Cell Reports 10:820 DOI: <a
-					href="https://linkinghub.elsevier.com/retrieve/pii/S2211-1247(15)00059-5">10.1016/j.celrep.2015.01.034
-				</a><br><br>
-				• Béduer A, <u>Gonzales-Calvo I</u>, Vieu C, Loubinoux I & Vaysse L. <strong>(2013)</strong><br>
-				<em>Investigation of The Competition Between Cell/Surface And Cell/Cell Interactions During Neuronal
-					Cell Culture On A Micro-Engineered Surface.</em><br>
-				Macromol Biosci. 13(11):1546-55. DOI: <a
-					href="https://doi.org/10.1002/mabi.201300202">10.1002/mabi.201300202</a><br>
-			</text><a href="#home"><button>Home</button></a>
-		</section><br>
+  <!-- Projects Section -->
+  <section class="section section-dark" id="projects">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Projects</h2>
+        <span class="section-rule"></span>
+      </div>
+      <p class="section-intro">A selection of data science and AI projects. Click any card to explore the work.</p>
+      <div class="projects-grid">
 
-		<section><a name="communications" id="communications"></a><br>
-			<h4>Communications</h4><text>
-				• JAN 2018 / 4th Cerebellum Club (France Cerebellum Club) / Paris, France / CIRB, Collège de France<br>
-				<em>When AMPA Receptors Meet Complement: Modulation of GluA2 Turnover By SUSD4</em><br>
-				González-Calvo I, Iyer K, Giuliani FA, Vincent J, Albert M, Nadjar Y, Dumoulin A, Triller A, Bessereau
-				JL, Rondi-Reig L, Isope P & Selimi F<br><br>
-				• SEP 2017 / Axon Guidance, Circuit Development and Regeneration / Klosterneuburg, Austria / IST
-				Austria<br>
-				<em>The Developmental Molecular Brake on AMPAR Synaptic Accumulation Leads to Learning And Memory
-					Deficits</em><br>
-				González-Calvo I, Iyer K, Giuliani FA, Vincent J, Albert M, Nadjar Y, Dumoulin A, Triller A, Bessereau
-				JL, Rondi-Reig L, Isope P & Selimi F<br><br>
-				• MAY 2017 / 15th Neuronal Networks Development Club / Bordeaux, France / Centre de Génomique
-				Fonctionnelle<br>
-				<em>Removing The Developmental Molecular Brake on AMPAR Synaptic Accumulation Leads to Learning And
-					Memory Deficits</em><br>
-				González-Calvo I, Iyer K, Giuliani FA, Vincent J, Albert M, Nadjar Y, Dumoulin A, Triller A, Bessereau
-				JL, Rondi-Reig L, Isope P & Selimi F<br><br></text>
-			<h5>Poster Presentations: </h5><text>
-				• JUL 2019 / Cerebellar Mechanisms for Movement, Learning and Cognition in Health and Disease / Les
-				Diablerets, Switzerland / Gordon Research Conference<br>
-				<em>Activity-Dependent Control of AMPA Receptor Degradation by Sushi Domain Protein SUSD4</em><br>
-				González-Calvo I, Iyer K, Carquin M, Sigoillot S, Vincent J, Dumoulin A, Triller A, Bessereau JL,
-				Rondi-Reig L, Isope P & Selimi F<br><br>
-				• NOV 2018 / Neuroscience 2018 / San Diego, USA / Hosted by the Society for Neuroscience<br>
-				<em>Activity-Dependent Control of AMPA Receptor Degradation by Sushi Domain Protein SUSD4</em><br>
-				González-Calvo I, Iyer K, Carquin M, Sigoillot S, Vincent J, Dumoulin A, Triller A, Bessereau JL,
-				Rondi-Reig L, Isope P & Selimi F<br><br>
-				• JUL 2018 / 11th FENS Forum of Neuroscience / Berlin, Germany / Hosted by the German Neuroscience
-				Society<br>
-				<em>Activity-Dependent Control of AMPA Receptor Degradation by Sushi Domain Protein SUSD4</em><br>
-				González-Calvo I, Iyer K, Carquin M, Sigoillot S, Vincent J, Nadjar Y, Dumoulin A, Triller A, Bessereau
-				JL, Rondi-Reig L, Isope P & Selimi F<br><br>
-				• SEP 2017 / Axon Guidance, Circuit Development and Regeneration / Klosterneuburg, Austria / IST
-				Austria<br>
-				<em>Removing The Developmental Molecular Brake on AMPAR Synaptic Accumulation Leads to Learning And
-					Memory Deficits</em><br>
-				González-Calvo I, Iyer K, Sigoillot S, Albert M, Vincent J, Nadjar Y, Dumoulin A, Triller A, Bessereau
-				JL, Rondi-Reig L, Isope P & Selimi F<br><br>
-				• MAY 2017 / Neurofrance 2017 / Bordeaux, France / Centre de Génomique Fonctionnelle, Université de
-				Bordeaux<br>
-				<em>Removing The Developmental Molecular Brake on AMPAR Synaptic Accumulation Leads to Learning And
-					Memory Deficits</em><br>
-				González-Calvo I, Iyer K, Sigoillot S, Albert M, Vincent J, Nadjar Y, Dumoulin A, Triller A, Bessereau
-				JL, Rondi-Reig L, Isope P & Selimi F<br><br>
-				• JAN 2017 / 3th Cerebellum Day (France Cerebellum Club) / Paris, France / IBENS, École Normale
-				Supérieure<br>
-				<em>Removing The Developmental Molecular Brake on AMPAR Synaptic Accumulation Leads to Learning And
-					Memory Deficits</em><br>
-				González-Calvo I, Iyer K, Sigoillot S, Albert M, Vincent J, Nadjar Y, Dumoulin A, Triller A, Bessereau
-				JL, Rondi-Reig L, Isope P & Selimi F<br><br>
-				• JUL 2016 / 10th FENS Forum of Neuroscience / Copenhagen, Denmark / Hosted by the Danish Society for
-				Neuroscience<br>
-				<em>Complement Control Related Protein Susd4 Promotes the Stabilization and Functional Maturation of
-					Climbing Fiber/Purkinje Cell Synapses in The Cerebellar Cortex</em><br>
-				Iyer K, González-Calvo I, Sigoillot SM, Albert M, Nadjar Y, Bessereau J, Dumoulin A, Triller A, Isope P
-				& Selimi F<br><br>
-				• NOV 2015 / 2nd Cerebellum Day (France Cerebellum Club) / Paris, France / Université Pierre et Marie
-				Curie<br>
-				<em>Role of Complement Lectin Pathway-Related Genes In Synapse Formation And Specificity In The
-					Olivo-Cerebellar Network</em><br>
-				González-Calvo I, Iyer K, Usardi A, Sigoillot SM, Isope P & Selimi F<br>
-			</text><a href="#home"><button>Home</button></a>
-		</section><br>
+        <!-- Featured: Neuropapers -->
+        <article class="project-card project-card--featured" id="project-neuropapers">
+          <div class="project-card-inner">
+            <div class="project-tag">Featured · AI Model</div>
+            <h3 class="project-title">Neuropapers DB</h3>
+            <p class="project-desc">A database of 61,945 neuroscience publications (2010–2023) with an ML model that predicts the most suitable journal for a given title &amp; abstract using TensorFlow embeddings and Quadratic Discriminant Analysis.</p>
+            <div class="project-tech">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">TensorFlow</span>
+              <span class="tech-badge">scikit-learn</span>
+              <span class="tech-badge">PubMed</span>
+              <span class="tech-badge">MySQL</span>
+            </div>
+            <div class="project-links">
+              <a href="flask_app/neuropapers" class="project-link project-link--cta" id="link-neuropapers-app">
+                Try the Model →
+              </a>
+              <a href="https://github.com/inesgcalvo/neuro_papers_db" target="_blank" class="project-link" id="link-neuropapers-gh">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+        </article>
 
-		<section><a name="grants" id="grants"></a><br>
-			<h4>Grants</h4><text>
-				* 2023 / <strong>#SheTechs by Page Group</strong> / Grant for women in tech and entrepreneurship / 12k
-				€<br><br>
-				* 2022 / <strong>Postdoctoral de la Junta de Andalucía</strong> / Universidad de Sevilla / Sevilla,
-				Spain<br><br>
-				* 2011 / Erasmus Placement / INSERM U825: Cerebral Imagery and Neurologic Handicap / Toulouse,
-				France<br><br>
-				* 2010 – 2011 / Erasmus / Université Paul Sabatier (Toulouse III) / Toulouse, France
-			</text><br><a href="#home"><button>Home</button></a>
-		</section><br>
-		<section><a name="contact" id="contact"></a><br>
-			<h4>Contact</h4><text>mail: inglez@gmail.com
-			</text><br><a href="#home"><button>Home</button></a>
-		</section>
-	</nav>
-	<footer>
-		<br><br>©
-		<script>
-			date = new Date();
-			year = date.getFullYear();
-			document.write(year);
-		</script>
-		Inés G. Calvo
-	</footer>
+        <!-- Breed Identifier -->
+        <article class="project-card" id="project-breed">
+          <div class="project-card-inner">
+            <div class="project-tag">Deep Learning · Vision</div>
+            <h3 class="project-title">Dog Breed Identifier</h3>
+            <p class="project-desc">An image classification model that identifies the breed of a dog from a photograph. Built with deep learning techniques on a multi-class dataset.</p>
+            <div class="project-tech">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">TensorFlow</span>
+              <span class="tech-badge">CNN</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/inesgcalvo/dog_image_classification" target="_blank" class="project-link project-link--cta" id="link-breed-gh">
+                View on GitHub →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Bulldozer -->
+        <article class="project-card" id="project-bulldozer">
+          <div class="project-card-inner">
+            <div class="project-tag">Machine Learning · Regression</div>
+            <h3 class="project-title">Bulldozer Price Prediction</h3>
+            <p class="project-desc">A machine learning regression model trained to predict the auction sale price of bulldozers based on historical usage and machine specifications.</p>
+            <div class="project-tech">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">scikit-learn</span>
+              <span class="tech-badge">pandas</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/inesgcalvo/Bulldozer_price_prediction" target="_blank" class="project-link project-link--cta" id="link-bulldozer-gh">
+                View on GitHub →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- More projects CTA -->
+        <article class="project-card project-card--ghost" id="project-more">
+          <div class="project-card-inner project-card-inner--center">
+            <div class="ghost-ornament">✦</div>
+            <h3 class="project-title">More Projects</h3>
+            <p class="project-desc">Explore all repositories on GitHub, including data pipelines, statistical analyses, and visualization work.</p>
+            <a href="https://github.com/inesgcalvo?tab=repositories" target="_blank" class="project-link project-link--cta" id="link-all-repos">
+              View All on GitHub →
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CV CTA Section -->
+  <section class="section section-cta" id="cta">
+    <div class="section-inner section-inner--center">
+      <div class="cta-ornament">⬥ ⬥ ⬥</div>
+      <h2 class="cta-title">Curriculum Vitae</h2>
+      <p class="cta-text">Full academic and professional history — education, work experience, publications, grants, and skills.</p>
+      <div class="cta-buttons">
+        <a href="flask_app/" class="btn btn-primary" id="btn-view-cv">View CV</a>
+        <a href="flask_app/cv/download" class="btn btn-outline" id="btn-download-cv">Download PDF</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="portal-footer">
+    <div class="footer-inner">
+      <div class="footer-ornament">✦</div>
+      <p class="footer-name">Inés González Calvo, Ph.D.</p>
+      <p class="footer-contact">inglez@gmail.com</p>
+      <div class="footer-socials">
+        <a href="https://github.com/inesgcalvo" target="_blank">GitHub</a>
+        <span class="footer-dot">·</span>
+        <a href="https://www.linkedin.com/in/ines-g-calvo" target="_blank">LinkedIn</a>
+        <span class="footer-dot">·</span>
+        <a href="https://orcid.org/0000-0002-2652-2160" target="_blank">ORCID</a>
+      </div>
+      <p class="footer-copy">© <span id="year"></span> Inés G. Calvo</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block title %}Neuropapers · Journal Predictor{% endblock %}
+{% block meta_desc %}Predict the best neuroscience journal for your paper. Enter a title and abstract and let the ML model suggest the most suitable publication venue.{% endblock %}
+{% block body_class %}page-neuropapers{% endblock %}
+
+{% block content %}
+<div class="np-wrapper">
+
+  <!-- Header -->
+  <div class="page-header page-header--dark">
+    <div class="page-header-inner">
+      <span class="page-label">AI Model · Neuroscience</span>
+      <h1 class="page-title">Neuropapers</h1>
+      <p class="page-subtitle">Journal Prediction for Neuroscience Publications</p>
+    </div>
+  </div>
+
+  <!-- Model info banner -->
+  <div class="np-info-banner">
+    <div class="np-info-inner">
+      <div class="np-stat">
+        <span class="np-stat-n">61,945</span>
+        <span class="np-stat-l">Publications</span>
+      </div>
+      <div class="np-stat-divider">·</div>
+      <div class="np-stat">
+        <span class="np-stat-n">110</span>
+        <span class="np-stat-l">Journals</span>
+      </div>
+      <div class="np-stat-divider">·</div>
+      <div class="np-stat">
+        <span class="np-stat-n">QDA</span>
+        <span class="np-stat-l">Classifier</span>
+      </div>
+      <div class="np-stat-divider">·</div>
+      <div class="np-stat">
+        <span class="np-stat-n">TF</span>
+        <span class="np-stat-l">Embeddings</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="np-main">
+    <div class="np-main-inner">
+
+      <!-- Left: Form -->
+      <div class="np-form-col">
+        <div class="np-card">
+          <div class="np-card-header">
+            <span class="np-card-icon">🔬</span>
+            <h2 class="np-card-title">Predict Journal</h2>
+            <p class="np-card-sub">Enter the title and abstract of your paper to receive journal recommendations based on topic similarity to 61k+ indexed publications.</p>
+          </div>
+
+          {% if not model_loaded %}
+          <div class="np-alert np-alert--warn">
+            <span class="np-alert-icon">⚠</span>
+            <div>
+              <strong>Model not yet loaded</strong>
+              <p>The <code>qda_model.pkl</code> and <code>label_encoder.pkl</code> files need to be placed in <code>flask_app/model/</code>. See the <a href="https://github.com/inesgcalvo/neuro_papers_db" target="_blank">neuro_papers_db repo</a> for the files.</p>
+            </div>
+          </div>
+          {% endif %}
+
+          <form method="POST" action="{{ url_for('neuropapers') }}" class="np-form" id="np-prediction-form">
+            <div class="form-group">
+              <label class="form-label" for="title">Paper Title</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                class="form-input"
+                placeholder="e.g., AMPA Receptor Lateral Diffusion at Synapses…"
+                value="{{ title_val }}"
+                required
+                autocomplete="off"
+              >
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="abstract">Abstract</label>
+              <textarea
+                id="abstract"
+                name="abstract"
+                class="form-textarea"
+                rows="8"
+                placeholder="Paste your abstract here. The model uses the text to generate embeddings and classify the most suitable journal."
+                required
+              >{{ abstr_val }}</textarea>
+              <span class="form-hint">Longer abstracts produce better predictions.</span>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary btn-full"
+              id="np-submit-btn"
+              {% if not model_loaded %}disabled{% endif %}
+            >
+              <span class="btn-text">Predict Journal</span>
+              <span class="btn-spinner" id="np-spinner" style="display:none">⟳</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- About the model -->
+        <div class="np-card np-card--subtle" id="np-about-model">
+          <h3 class="np-card-title np-card-title--sm">About the Model</h3>
+          <p>The pipeline preprocesses the input text (lowercasing, stop-word removal, tokenization), generates embeddings using a Keras embedding layer, reduces dimensionality with PCA, and classifies with a <strong>Quadratic Discriminant Analysis</strong> (QDA) model trained on publications from 110 top neuroscience journals.</p>
+          <p>Data sourced from <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank">PubMed</a>, <a href="https://www.scimagojr.com/" target="_blank">SCImago</a>, <a href="https://www.oecd.org/" target="_blank">OECD</a>, and more.</p>
+          <a href="https://github.com/inesgcalvo/neuro_papers_db" target="_blank" class="np-gh-link">View source on GitHub ↗</a>
+        </div>
+      </div>
+
+      <!-- Right: Results -->
+      <div class="np-results-col">
+
+        {% if error %}
+        <div class="np-alert np-alert--error">
+          <span class="np-alert-icon">✕</span>
+          <div>
+            <strong>Error</strong>
+            <p>{{ error }}</p>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if results %}
+        <div class="np-results" id="np-results">
+          <div class="np-results-header">
+            <h2 class="np-results-title">Predicted Journals</h2>
+            <p class="np-results-sub">Top {{ results|length }} journal recommendations for your paper:</p>
+          </div>
+
+          <div class="np-result-list">
+            {% for result in results %}
+            <div class="np-result-item {% if loop.first %}np-result-item--top{% endif %}">
+              <div class="np-result-rank">
+                {% if loop.first %}🥇{% elif loop.index == 2 %}🥈{% elif loop.index == 3 %}🥉{% else %}{{ loop.index }}{% endif %}
+              </div>
+              <div class="np-result-body">
+                <p class="np-result-journal">{{ result.journal }}</p>
+                <div class="np-result-bar-wrap">
+                  <div class="np-result-bar">
+                    <div class="np-result-fill" style="width: {{ (result.probability * 100)|round(1) }}%"></div>
+                  </div>
+                  <span class="np-result-prob">{{ "%.4f"|format(result.probability) }}</span>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+          <p class="np-results-note">Probabilities reflect the QDA classifier's class posteriors. Results are for exploratory purposes.</p>
+        </div>
+
+        {% elif request.method == 'POST' and not error %}
+        <div class="np-empty">
+          <span class="np-empty-icon">📭</span>
+          <p>No results returned. Please check the model files.</p>
+        </div>
+
+        {% else %}
+        <div class="np-placeholder" id="np-placeholder">
+          <div class="np-placeholder-content">
+            <div class="np-placeholder-ornament">🧬</div>
+            <h3>Results will appear here</h3>
+            <p>Fill in the form on the left and click <em>Predict Journal</em> to see top journal recommendations based on your paper's content.</p>
+            <div class="np-example-box">
+              <p class="np-example-label">Example query used in the original project:</p>
+              <p class="np-example-title"><em>"Sushi domain-containing protein 4 controls synaptic plasticity and motor learning"</em></p>
+              <p class="np-example-journal">→ Published in: <strong>eLife</strong></p>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+      </div>
+    </div><!-- /np-main-inner -->
+  </div><!-- /np-main -->
+
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  // Show spinner on submit
+  document.getElementById('np-prediction-form')?.addEventListener('submit', function () {
+    const btn     = document.getElementById('np-submit-btn');
+    const spinner = document.getElementById('np-spinner');
+    const text    = btn.querySelector('.btn-text');
+    if (btn && spinner && text) {
+      text.textContent = 'Running model…';
+      spinner.style.display = 'inline-block';
+      btn.disabled = true;
+    }
+  });
+
+  // Animate result bars on load
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.np-result-fill').forEach((el, i) => {
+      const w = el.style.width;
+      el.style.width = '0';
+      setTimeout(() => {
+        el.style.transition = 'width 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        el.style.width = w;
+      }, 200 + i * 120);
+    });
+  });
+</script>
+{% endblock %}
