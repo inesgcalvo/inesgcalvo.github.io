@@ -60,7 +60,7 @@ body {
 .raccoon-img {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 25px 50px rgba(0,0,0,0.12));
+  /* No shadow/frame as requested */
 }
 
 /* --- UI Elements (Floating) --- */
@@ -215,6 +215,7 @@ body {
 .panel-text {
   color: var(--text-dark);
   font-size: 1.1rem;
+  text-align: center;
 }
 
 .projects-grid {
@@ -222,11 +223,16 @@ body {
   flex-direction: column;
   gap: 1.5rem;
   margin-top: 1rem;
+  text-align: center;
 }
 
 .project-item {
-  border-left: 3px solid var(--primary-green);
-  padding-left: 1rem;
+  padding: 0 0 1.5rem 0;
+  border-bottom: 1px solid rgba(45, 90, 39, 0.1);
+}
+
+.project-item:last-child {
+  border-bottom: none;
 }
 
 .project-item h4 {
