@@ -1,22 +1,21 @@
 /* ============================================================
-   DESIGN SYSTEM — Inés G. Calvo · Minimalist Low-Poly Portal
+   DESIGN SYSTEM — Inés G. Calvo · 'In Pieces' Style Redesign
    ============================================================ */
 
 /* --- Google Fonts --- */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
 
 :root {
-  /* Green Palette */
-  --bg-color:       #E8F5E9; /* Light Sage/Mint */
-  --primary-green:  #2D5A27; /* Forest Green */
+  /* Green Palette - Matching the raccoon image background */
+  --bg-color:       #B8D9B3; /* Solid Green from raccoon image */
+  --primary-green:  #2D5A27; /* Forest Green for UI */
   --accent-green:   #4CAF50; /* Leaf Green */
   --text-dark:      #1B3022; /* Deep Dark Green */
-  --text-muted:     #5D7B66; /* Sage Muted Green */
+  --text-muted:     #4B6350; /* Muted Green */
   --white:          #FFFFFF;
   
-  /* Typography */
-  --font-display:   'Playfair Display', serif;
-  --font-body:      'Outfit', sans-serif;
+  /* Typography - Strictly Sans-Serif */
+  --font-main:      'Outfit', sans-serif;
 
   /* Transitions */
   --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -26,202 +25,231 @@
 /* --- Reset & Base --- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Disable scrolling */
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-main);
   background-color: var(--bg-color);
   color: var(--text-dark);
   line-height: 1.6;
-  overflow-x: hidden;
-  min-height: 100vh;
 }
 
-/* --- Layout --- */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-/* --- Hero Section (Minimalist Central Figure) --- */
-.hero {
+/* --- Main Layout --- */
+.app-container {
+  position: relative;
+  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  position: relative;
 }
 
-.raccoon-container {
-  width: clamp(250px, 40vw, 500px);
-  margin-bottom: 2rem;
-  animation: fadeInScale 1.5s var(--ease-snap) both;
+/* --- Central Figure --- */
+.central-figure {
+  width: clamp(280px, 45vw, 550px);
+  position: relative;
+  z-index: 2;
+  animation: fadeInScale 1.8s var(--ease-snap) both;
 }
 
 .raccoon-img {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));
+  filter: drop-shadow(0 25px 50px rgba(0,0,0,0.12));
 }
 
-.hero-info {
-  animation: fadeInUp 1.2s var(--ease-snap) 0.3s both;
-}
-
-.hero-name {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--primary-green);
-}
-
-.hero-title {
-  font-size: 1.1rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  font-weight: 400;
-}
-
-/* --- Minimalist Navigation --- */
-.portal-nav {
+/* --- UI Elements (Floating) --- */
+.ui-overlay {
   position: absolute;
-  bottom: 3rem;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  animation: fadeIn 1.5s var(--ease-smooth) 0.8s both;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
 }
 
-.nav-link {
-  text-decoration: none;
-  color: var(--text-muted);
+.ui-btn {
+  pointer-events: auto;
+  background: transparent;
+  border: 1.5px solid var(--primary-green);
+  color: var(--primary-green);
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
   font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-smooth);
+}
+
+.ui-btn:hover {
+  background: var(--primary-green);
+  color: var(--bg-color);
+  transform: scale(1.05);
+}
+
+/* Positions matching 'In Pieces' */
+.btn-left {
+  position: absolute;
+  left: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btn-right {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bottom-info {
+  position: absolute;
+  bottom: 4rem;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.name-title {
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3.5vw, 2.8rem);
+  color: var(--primary-green);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.02em;
+}
+
+.sub-title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--text-muted);
+}
+
+.social-links {
+  position: absolute;
+  bottom: 1.5rem;
+  display: flex;
+  gap: 2rem;
+  pointer-events: auto;
+}
+
+.social-link {
+  color: var(--primary-green);
+  text-decoration: none;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  transition: color 0.3s, transform 0.3s;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.social-link:hover { opacity: 1; }
+
+/* --- Info Panels (Modals) --- */
+.info-panel {
+  position: fixed;
+  inset: 0;
+  background: rgba(45, 90, 39, 0.95); /* Dark green semi-transparent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s var(--ease-smooth);
+  backdrop-filter: blur(10px);
+}
+
+.info-panel.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.panel-content {
+  background: var(--bg-color);
+  width: 90%;
+  max-width: 600px;
+  padding: 3rem;
+  border-radius: 12px;
   position: relative;
+  transform: translateY(20px);
+  transition: transform 0.5s var(--ease-snap);
 }
 
-.nav-link::after {
-  content: '';
+.info-panel.active .panel-content {
+  transform: translateY(0);
+}
+
+.close-panel {
   position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--accent-green);
-  transition: width 0.3s var(--ease-smooth);
-}
-
-.nav-link:hover {
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
   color: var(--primary-green);
-  transform: translateY(-2px);
+  cursor: pointer;
 }
 
-.nav-link:hover::after {
-  width: 100%;
-}
-
-/* --- Sections (Concise) --- */
-.section {
-  padding: 6rem 0;
-  background: var(--white);
-}
-
-.section-inner {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.section-title {
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+.panel-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
   color: var(--primary-green);
-  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
-.section-content {
-  font-size: 1.1rem;
+.panel-text {
   color: var(--text-dark);
-  line-height: 1.8;
+  font-size: 1.1rem;
 }
 
-/* --- Projects --- */
-.projects-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 
 .project-item {
-  border-bottom: 1px solid #eee;
-  padding-bottom: 2rem;
+  border-left: 3px solid var(--primary-green);
+  padding-left: 1rem;
 }
 
-.project-item h3 {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--primary-green);
+.project-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
 }
 
 .project-item p {
+  font-size: 0.9rem;
   color: var(--text-muted);
-  margin-bottom: 1rem;
 }
 
-.project-link {
+.project-item a {
   color: var(--accent-green);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.9rem;
-}
-
-/* --- Footer --- */
-.footer {
-  padding: 4rem 0;
-  text-align: center;
   font-size: 0.8rem;
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
 }
 
 /* --- Animations --- */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 @keyframes fadeInScale {
-  from { opacity: 0; transform: scale(0.9); }
+  from { opacity: 0; transform: scale(0.85); }
   to   { opacity: 1; transform: scale(1); }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
 /* --- Responsive --- */
-@media (max-width: 600px) {
-  .portal-nav {
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    bottom: 2rem;
+@media (max-width: 800px) {
+  .btn-left, .btn-right {
+    top: auto;
+    bottom: 10rem;
+    transform: none;
   }
-  .hero-name { font-size: 2.5rem; }
-  .hero-title { font-size: 0.9rem; }
+  .btn-left { left: 2rem; }
+  .btn-right { right: 2rem; }
+  .name-title { font-size: 1.8rem; }
 }

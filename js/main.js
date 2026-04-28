@@ -1,45 +1,44 @@
 /* ============================================================
-   main.js — Minimalist interactions
+   main.js — Interactive Modal Logic
    ============================================================ */
 
-// --- Update Current Year ---
-const yearEl = document.getElementById('year');
-if (yearEl) {
-  yearEl.textContent = new Date().getFullYear();
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const openAboutBtn = document.getElementById('open-about');
+  const openProjectsBtn = document.getElementById('open-projects');
+  const panelAbout = document.getElementById('panel-about');
+  const panelProjects = document.getElementById('panel-projects');
+  const closeBtns = document.querySelectorAll('.close-panel');
+  const panels = document.querySelectorAll('.info-panel');
 
-// --- Smooth Scroll for Anchor Links ---
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+  // --- Open Panels ---
+  openAboutBtn.addEventListener('click', () => {
+    panelAbout.classList.add('active');
+  });
+
+  openProjectsBtn.addEventListener('click', () => {
+    panelProjects.classList.add('active');
+  });
+
+  // --- Close Panels ---
+  closeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      panels.forEach(p => p.classList.remove('active'));
+    });
+  });
+
+  // Close on background click
+  panels.forEach(panel => {
+    panel.addEventListener('click', (e) => {
+      if (e.target === panel) {
+        panel.classList.remove('active');
+      }
+    });
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      panels.forEach(p => p.classList.remove('active'));
     }
   });
-});
-
-// --- Simple Scroll Reveal ---
-const observerOptions = {
-  threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-      observer.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
-
-document.querySelectorAll('.section').forEach(section => {
-  section.style.opacity = '0';
-  section.style.transform = 'translateY(30px)';
-  section.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-  observer.observe(section);
 });

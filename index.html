@@ -4,74 +4,77 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Inés G. Calvo">
-  <meta name="description" content="Inés González Calvo — Data Scientist & Neuroscientist. Minimalist Portfolio.">
+  <meta name="description" content="Inés González Calvo — Data Scientist & Neuroscientist. Interactive Minimalist Portfolio.">
   <title>Inés G. Calvo · Data Scientist & Neuroscientist</title>
   <link rel="shortcut icon" href="img/logo_inesgcalvo.png">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Main Hero Section -->
-  <main class="hero" id="home">
-    <div class="raccoon-container">
+  <div class="app-container">
+    
+    <!-- Central Figure -->
+    <div class="central-figure">
       <img src="img/raccoon.png" alt="Geometric Raccoon" class="raccoon-img">
     </div>
-    
-    <div class="hero-info">
-      <h1 class="hero-name">Inés G. Calvo</h1>
-      <h2 class="hero-title">Data Scientist & Neuroscientist</h2>
+
+    <!-- UI Elements -->
+    <div class="ui-overlay">
+      <button class="ui-btn btn-left" id="open-about">About</button>
+      <button class="ui-btn btn-right" id="open-projects">Projects</button>
+      
+      <div class="bottom-info">
+        <h1 class="name-title">Inés G. Calvo</h1>
+        <p class="sub-title">Data Scientist & Neuroscientist</p>
+      </div>
+
+      <nav class="social-links">
+        <a href="https://github.com/inesgcalvo" target="_blank" class="social-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/ines-g-calvo" target="_blank" class="social-link">LinkedIn</a>
+        <a href="https://orcid.org/0000-0002-2652-2160" target="_blank" class="social-link">ORCID</a>
+      </nav>
     </div>
 
-    <nav class="portal-nav">
-      <a href="#about" class="nav-link">About</a>
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="flask_app/" class="nav-link">CV</a>
-      <a href="https://github.com/inesgcalvo" target="_blank" class="nav-link">GitHub</a>
-      <a href="https://www.linkedin.com/in/ines-g-calvo" target="_blank" class="nav-link">LinkedIn</a>
-    </nav>
-  </main>
+  </div>
 
-  <!-- About Section -->
-  <section class="section" id="about">
-    <div class="section-inner">
-      <h2 class="section-title">About</h2>
-      <div class="section-content">
+  <!-- About Panel -->
+  <div class="info-panel" id="panel-about">
+    <div class="panel-content">
+      <button class="close-panel">&times;</button>
+      <h2 class="panel-title">About Me</h2>
+      <div class="panel-text">
         <p>Ph.D. in Neuroscience turned Data Scientist. I specialize in bridging the gap between complex biological data and actionable AI insights.</p>
-        <p>With over a decade of research experience and a transition into industry, I focus on building machine learning models that solve real-world problems with scientific rigor.</p>
+        <p style="margin-top: 1rem;">With over a decade of research experience and a transition into industry, I focus on building machine learning models that solve real-world problems with scientific rigor.</p>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Projects Section -->
-  <section class="section" id="projects">
-    <div class="section-inner">
-      <h2 class="section-title">Projects</h2>
-      <div class="projects-list">
+  <!-- Projects Panel -->
+  <div class="info-panel" id="panel-projects">
+    <div class="panel-content">
+      <button class="close-panel">&times;</button>
+      <h2 class="panel-title">Selected Projects</h2>
+      <div class="projects-grid">
         <article class="project-item">
-          <h3>Neuropapers DB</h3>
-          <p>An ML model predicting suitable journals for neuroscience publications using TensorFlow and QDA.</p>
-          <a href="flask_app/neuropapers" class="project-link">View Project →</a>
+          <h4>Neuropapers DB</h4>
+          <p>ML model predicting journals for neuroscience publications using TensorFlow.</p>
+          <a href="https://github.com/inesgcalvo/neuro_papers_db" target="_blank">View GitHub →</a>
         </article>
         
         <article class="project-item">
-          <h3>Breed Identifier</h3>
-          <p>Deep learning vision model for identifying dog breeds from photographs.</p>
-          <a href="https://github.com/inesgcalvo/dog_image_classification" target="_blank" class="project-link">GitHub →</a>
+          <h4>Dog Breed Identifier</h4>
+          <p>Deep learning vision model for identifying dog breeds.</p>
+          <a href="https://github.com/inesgcalvo/dog_image_classification" target="_blank">View GitHub →</a>
         </article>
         
         <article class="project-item">
-          <h3>Price Prediction</h3>
-          <p>Regression model for predicting heavy machinery auction prices.</p>
-          <a href="https://github.com/inesgcalvo/Bulldozer_price_prediction" target="_blank" class="project-link">GitHub →</a>
+          <h4>Price Prediction</h4>
+          <p>Regression model for heavy machinery auction prices.</p>
+          <a href="https://github.com/inesgcalvo/Bulldozer_price_prediction" target="_blank">View GitHub →</a>
         </article>
       </div>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© <span id="year"></span> Inés G. Calvo · Built with minimalism & precision.</p>
-  </footer>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
