@@ -17,6 +17,12 @@
   /* Typography - Strictly Sans-Serif */
   --font-main:      'Outfit', sans-serif;
 
+  /* Molecule geometry — width of the regular hexagon (vertex to vertex).
+     Its height is always width * sin(60°) = width * 0.8660254 */
+  --hex-w: min(80vw, 64vh * 1.1547, 820px);
+  /* Length of a branch bond, from the vertex outwards */
+  --twig-L: calc(var(--hex-w) * 0.2);
+
   /* Transitions */
   --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --ease-snap:   cubic-bezier(0.16, 1, 0.3, 1);
@@ -49,18 +55,180 @@ body {
   justify-content: center;
 }
 
+/* --- Molecule (hexagonal carbon ring) --- */
+.molecule {
+  position: relative;
+  width: var(--hex-w);
+  aspect-ratio: 1 / 0.8660254; /* regular hexagon bounding box */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: transform 0.5s var(--ease-snap);
+}
+
+/* Branches grow inwards, so the raccoon steps back while one is open */
+.molecule.has-open .central-figure { opacity: 0.3; }
+
+/* Bonds — the drawn edges of the hexagon */
+.hex-bonds {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.hex-bonds polygon {
+  fill: none;
+  stroke: var(--primary-green);
+  stroke-width: 0.25;      /* viewBox units — scales with the hexagon */
+  stroke-linejoin: round;
+  opacity: 0.5;
+  stroke-dasharray: 300;         /* perimeter = 6 * 50 in viewBox units */
+  animation: drawBonds 2.4s var(--ease-smooth) 0.3s both;
+}
+
 /* --- Central Figure --- */
 .central-figure {
-  width: clamp(280px, 45vw, 550px);
+  width: 40%;
   position: relative;
   z-index: 2;
   animation: fadeInScale 1.8s var(--ease-snap) both;
+  transition: opacity 0.5s var(--ease-smooth);
 }
 
 .raccoon-img {
   width: 100%;
   height: auto;
   /* No shadow/frame as requested */
+}
+
+/* --- Nodes (atoms sitting on the hexagon vertices) --- */
+.hex-nodes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* A vertex is a zero-sized anchor: its node and its branch hang from it */
+.vertex { position: absolute; width: 0; height: 0; }
+
+.v-nw { left: 25%;  top: 0;    }
+.v-ne { left: 75%;  top: 0;    }
+.v-e  { left: 100%; top: 50%;  }
+.v-se { left: 75%;  top: 100%; }
+.v-sw { left: 25%;  top: 100%; }
+.v-w  { left: 0;    top: 50%;  }
+
+.node, .sub {
+  pointer-events: auto;
+  background: var(--bg-color); /* masks the bond behind the label */
+  border: none;
+  border-radius: 50px;
+  color: var(--primary-green);
+  font-family: var(--font-main);
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.3s var(--ease-smooth), transform 0.3s var(--ease-smooth);
+}
+
+/* Main nodes — the six hexagon vertices */
+.node {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2; /* the label masks the start of its own bonds */
+  transform: translate(-50%, -50%);
+  font-size: clamp(0.6rem, 1.05vw, 0.8rem);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  padding: 0.5rem 0.9rem;
+  animation: fadeInNode 1s var(--ease-snap) both;
+}
+
+.v-nw .node { animation-delay: 0.9s; }
+.v-ne .node { animation-delay: 1.05s; }
+.v-e  .node { animation-delay: 1.2s; }
+.v-se .node { animation-delay: 1.35s; }
+.v-sw .node { animation-delay: 1.5s; }
+.v-w  .node { animation-delay: 1.65s; }
+
+.node:hover,
+.node:focus-visible {
+  color: var(--accent-green);
+  outline: none;
+  transform: translate(-50%, -50%) scale(1.12);
+}
+
+.node.active { color: var(--accent-green); }
+
+/* --- Branches (the sub-nodes bonded to a vertex) --- */
+.branch {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.7);
+  transform-origin: 0 0;
+  z-index: 1;
+  transition: opacity 0.35s var(--ease-smooth),
+              transform 0.45s var(--ease-snap),
+              visibility 0.35s;
+}
+
+.branch.open {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+/* Bond length per branch: short enough that the sub-nodes sit in the ring's
+   inner margin, clear of both the raccoon and the hexagon edges */
+#branch-about     { --twig-L: calc(var(--hex-w) * 0.18); }
+#branch-neuro     { --twig-L: calc(var(--hex-w) * 0.21); }
+#branch-data      { --twig-L: calc(var(--hex-w) * 0.19); }
+#branch-galleries { --twig-L: calc(var(--hex-w) * 0.19); }
+
+.twig { position: absolute; left: 0; top: 0; width: 0; height: 0; }
+
+/* The line from the vertex to its sub-node */
+.bond {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--twig-L);
+  height: 1px;
+  background: var(--primary-green);
+  opacity: 0.45;
+  transform: rotate(var(--a));
+  transform-origin: 0 50%;
+}
+
+/* Sub-node: rotate out along the bond, then un-rotate so the text stays level */
+.sub {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: clamp(0.55rem, 0.95vw, 0.72rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  padding: 0.35rem 0.7rem;
+  transform: rotate(var(--a)) translateX(var(--twig-L)) rotate(calc(-1 * var(--a))) translate(-50%, -50%);
+}
+
+.sub:hover,
+.sub:focus-visible {
+  color: var(--accent-green);
+  outline: none;
+  transform: rotate(var(--a)) translateX(var(--twig-L)) rotate(calc(-1 * var(--a))) translate(-50%, -50%) scale(1.14);
 }
 
 /* --- UI Elements (Floating) --- */
@@ -71,44 +239,9 @@ body {
   z-index: 10;
 }
 
-.ui-btn {
-  pointer-events: auto;
-  background: transparent;
-  border: 1.5px solid var(--primary-green);
-  color: var(--primary-green);
-  padding: 0.8rem 1.5rem;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  cursor: pointer;
-  transition: all 0.3s var(--ease-smooth);
-}
-
-.ui-btn:hover {
-  background: var(--primary-green);
-  color: var(--bg-color);
-  transform: scale(1.05);
-}
-
-/* Positions matching 'In Pieces' */
-.btn-left {
-  position: absolute;
-  left: 3rem;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.btn-right {
-  position: absolute;
-  right: 3rem;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 .bottom-info {
   position: absolute;
-  bottom: 3rem;
+  bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -129,7 +262,6 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.25em;
   color: var(--text-muted);
-  margin-bottom: 1.25rem;
 }
 
 .social-links {
@@ -252,20 +384,267 @@ body {
   font-size: 0.8rem;
 }
 
+/* Under-construction panels */
+.wip .lead-text {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  color: var(--primary-green);
+  margin-bottom: 0.75rem;
+}
+
+.wip p:last-child { color: var(--text-muted); font-size: 1rem; }
+
 /* --- Animations --- */
 @keyframes fadeInScale {
   from { opacity: 0; transform: scale(0.85); }
   to   { opacity: 1; transform: scale(1); }
 }
 
+@keyframes drawBonds {
+  from { stroke-dashoffset: 300; opacity: 0; }
+  to   { stroke-dashoffset: 0;   opacity: 0.5; }
+}
+
+@keyframes fadeInNode {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hex-bonds polygon, .node, .central-figure { animation: none; }
+  .hex-bonds polygon { stroke-dashoffset: 0; }
+}
+
 /* --- Responsive --- */
 @media (max-width: 800px) {
-  .btn-left, .btn-right {
-    top: auto;
-    bottom: 10rem;
-    transform: none;
+  /* Narrower ring so the left/right labels stay inside the viewport */
+  :root { --hex-w: min(78vw, 56vh * 1.1547); }
+  .central-figure { width: 38%; }
+
+  .node {
+    font-size: 0.56rem;
+    letter-spacing: 0.06em;
+    padding: 0.35rem 0.45rem;
   }
-  .btn-left { left: 2rem; }
-  .btn-right { right: 2rem; }
+
   .name-title { font-size: 1.8rem; }
+
+  /* A radial fan is too tight on a phone: inside the ring the branch becomes
+     a vertical chain instead, over the (faded) raccoon */
+  .molecule.has-open .central-figure { opacity: 0.12; }
+
+  .branch {
+    /* fixed, not absolute: the vertex it hangs from has zero size, so
+       percentages there resolve to the vertex itself, not the ring centre */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    transform: translate(-50%, -50%) scale(0.8);
+    transform-origin: 50% 50%;
+    z-index: 4;
+  }
+
+  .branch.open { transform: translate(-50%, -50%) scale(1); }
+
+  /* The chain line behind the stacked sub-nodes */
+  .branch::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0.4rem;
+    bottom: 0.4rem;
+    width: 1px;
+    background: var(--primary-green);
+    opacity: 0.4;
+  }
+
+  .twig {
+    position: relative;
+    width: auto;
+    height: auto;
+    z-index: 1;
+  }
+
+  .bond { display: none; }
+
+  .sub {
+    position: static;
+    transform: none;
+    font-size: 0.58rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .sub:hover, .sub:focus-visible { transform: scale(1.08); }
 }
+
+/* ============================================================
+   SUB-PAGES (bio, cv, contact, publications, experiences)
+   ============================================================ */
+
+html.page-html { height: auto; overflow-y: auto; }
+
+body.page {
+  height: auto;
+  min-height: 100%;
+  overflow-y: auto;
+}
+
+.page-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.page-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 3.5rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-green);
+  text-decoration: none;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  opacity: 0.75;
+  transition: opacity 0.3s, transform 0.3s var(--ease-smooth);
+}
+
+.back-link:hover { opacity: 1; transform: translateX(-3px); }
+
+/* Small hexagon mark next to the back link */
+.hex-mark { width: 14px; height: 13px; }
+.hex-mark polygon { fill: none; stroke: var(--primary-green); stroke-width: 6; }
+
+.page-header { margin-bottom: 2.5rem; }
+
+.page-title {
+  font-size: clamp(1.9rem, 5vw, 2.8rem);
+  font-weight: 600;
+  color: var(--primary-green);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.15;
+}
+
+.page-kicker {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--text-muted);
+  margin-top: 0.6rem;
+}
+
+.page-body { font-size: 1.05rem; color: var(--text-dark); }
+.page-body p { margin-bottom: 1.1rem; }
+.page-body .lead-text { font-size: 1.25rem; }
+
+.page-section { margin-top: 3rem; }
+
+.section-title {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--primary-green);
+  padding-bottom: 0.6rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(45, 90, 39, 0.18);
+}
+
+/* Filled action button (CV download, mail) */
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--primary-green);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 50px;
+  padding: 0.9rem 1.7rem;
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s var(--ease-smooth), opacity 0.3s;
+}
+
+.action-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+.action-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.9rem;
+}
+
+/* Entry lists (experience, publications) */
+.entry {
+  padding-bottom: 1.6rem;
+  margin-bottom: 1.6rem;
+  border-bottom: 1px solid rgba(45, 90, 39, 0.12);
+}
+
+.entry:last-child { border-bottom: none; }
+
+.entry-meta {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+
+.entry h3 { font-size: 1.1rem; font-weight: 600; color: var(--primary-green); }
+.entry p { font-size: 0.95rem; color: var(--text-dark); margin-top: 0.35rem; }
+.entry a { color: var(--accent-green); font-weight: 600; font-size: 0.8rem; text-decoration: none; }
+
+.placeholder-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 1.5rem;
+}
+
+.page-footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(45, 90, 39, 0.18);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.page-footer p { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.05em; }
+
+/* Small inline text button (e.g. "Copy address") */
+.text-btn {
+  background: none;
+  border: none;
+  color: var(--accent-green);
+  font-family: var(--font-main);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 0.75rem;
+}
+
+.text-btn:hover { opacity: 0.75; }

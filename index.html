@@ -12,68 +12,202 @@
 <body>
 
   <div class="app-container">
-    
-    <!-- Central Figure -->
-    <div class="central-figure">
-      <img src="img/raccoon.png" alt="Geometric Raccoon" class="raccoon-img">
+
+    <!-- Hexagonal molecule: bonds + central figure + 6 vertices -->
+    <div class="molecule" id="molecule">
+
+      <!-- Bonds (hexagon edges) -->
+      <svg class="hex-bonds" viewBox="0 0 100 86.6" aria-hidden="true" focusable="false">
+        <polygon points="100,43.3 75,0 25,0 0,43.3 25,86.6 75,86.6"/>
+      </svg>
+
+      <!-- Central Figure -->
+      <div class="central-figure">
+        <img src="img/raccoon.png" alt="Geometric Raccoon" class="raccoon-img">
+      </div>
+
+      <!-- Vertices (atoms) + their branches -->
+      <div class="hex-nodes">
+
+        <!-- Top left -->
+        <div class="vertex v-nw">
+          <button class="node" data-hub="about" aria-expanded="false">About</button>
+          <div class="branch" id="branch-about">
+            <div class="twig" style="--a: 32deg">
+              <span class="bond"></span>
+              <a class="sub" href="bio.html">Bio</a>
+            </div>
+            <div class="twig" style="--a: 60deg">
+              <span class="bond"></span>
+              <a class="sub" href="cv.html">CV</a>
+            </div>
+            <div class="twig" style="--a: 88deg">
+              <span class="bond"></span>
+              <a class="sub" href="contact.html">Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top right -->
+        <div class="vertex v-ne">
+          <button class="node" data-panel="panel-others">Others</button>
+        </div>
+
+        <!-- Middle right -->
+        <div class="vertex v-e">
+          <button class="node" data-hub="neuro" aria-expanded="false">Neurosciences</button>
+          <div class="branch" id="branch-neuro">
+            <div class="twig" style="--a: 208deg">
+              <span class="bond"></span>
+              <a class="sub" href="publications.html">Publications</a>
+            </div>
+            <div class="twig" style="--a: 180deg">
+              <span class="bond"></span>
+              <a class="sub" href="experiences.html">Experiences</a>
+            </div>
+            <div class="twig" style="--a: 152deg">
+              <span class="bond"></span>
+              <a class="sub" href="https://orcid.org/0000-0002-2652-2160" target="_blank" rel="noopener">ORCID</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom right -->
+        <div class="vertex v-se">
+          <button class="node" data-panel="panel-fragments">Fragments</button>
+        </div>
+
+        <!-- Bottom left -->
+        <div class="vertex v-sw">
+          <button class="node" data-hub="galleries" aria-expanded="false">Galleries</button>
+          <div class="branch" id="branch-galleries">
+            <div class="twig" style="--a: -80deg">
+              <span class="bond"></span>
+              <button class="sub" data-panel="panel-photography">Photography</button>
+            </div>
+            <div class="twig" style="--a: -40deg">
+              <span class="bond"></span>
+              <button class="sub" data-panel="panel-drawings">Drawings</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Middle left -->
+        <div class="vertex v-w">
+          <button class="node" data-hub="data" aria-expanded="false">Data Sciences</button>
+          <div class="branch" id="branch-data">
+            <div class="twig" style="--a: -28deg">
+              <span class="bond"></span>
+              <button class="sub" data-panel="panel-projects">Projects</button>
+            </div>
+            <div class="twig" style="--a: 28deg">
+              <span class="bond"></span>
+              <button class="sub" data-panel="panel-models">Models</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
     <!-- UI Elements -->
     <div class="ui-overlay">
-      <button class="ui-btn btn-left" id="open-about">About</button>
-      <button class="ui-btn btn-right" id="open-projects">Projects</button>
-      
       <div class="bottom-info">
         <h1 class="name-title">Inés G. Calvo, Ph.D.</h1>
-        <p class="sub-title">Data Scientist & Neuroscientist</p>
+        <p class="sub-title">Data Scientist &amp; Neuroscientist</p>
         <nav class="social-links">
-          <a href="https://github.com/inesgcalvo" target="_blank" class="social-link">GitHub</a>
+          <a href="https://github.com/inesgcalvo" target="_blank" rel="noopener" class="social-link">GitHub</a>
           <span class="separator">|</span>
-          <a href="https://www.linkedin.com/in/ines-g-calvo" target="_blank" class="social-link">LinkedIn</a>
-          <span class="separator">|</span>
-          <a href="https://orcid.org/0000-0002-2652-2160" target="_blank" class="social-link">ORCID</a>
+          <a href="https://www.linkedin.com/in/ines-g-calvo" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
         </nav>
       </div>
     </div>
 
   </div>
 
-  <!-- About Panel -->
-  <div class="info-panel" id="panel-about">
-    <div class="panel-content">
-      <button class="close-panel">&times;</button>
-      <h2 class="panel-title">About Me</h2>
-      <div class="panel-text" style="text-align: center;">
-        <p class="lead-text">I have always been fascinated by neurons, their complexity and the way they connect to form intricate networks.</p>
-        <p style="margin-top: 1rem;">Over the years, I have enjoyed producing, analyzing, and ultimately publishing data on synapses — the structures that enable communication between neurons. In 2023, I moved into industry to continue pursuing my passion: research involving structured and unstructured data.</p>
-        <p style="margin-top: 1rem;">My work combines deep neuroscience expertise with modern machine learning, allowing me to bridge the worlds of academic research and applied AI.</p>
-      </div>
-    </div>
-  </div>
-
   <!-- Projects Panel -->
   <div class="info-panel" id="panel-projects">
     <div class="panel-content">
-      <button class="close-panel">&times;</button>
-      <h2 class="panel-title">Selected Projects</h2>
+      <button class="close-panel" aria-label="Close">&times;</button>
+      <h2 class="panel-title">Projects</h2>
       <div class="projects-grid">
         <article class="project-item">
           <h4>Neuropapers DB</h4>
           <p>ML model predicting journals for neuroscience publications using TensorFlow.</p>
-          <a href="https://github.com/inesgcalvo/neuro_papers_db" target="_blank">View GitHub →</a>
+          <a href="https://github.com/inesgcalvo/neuro_papers_db" target="_blank" rel="noopener">View GitHub →</a>
         </article>
-        
+
         <article class="project-item">
           <h4>Dog Breed Identifier</h4>
           <p>Deep learning vision model for identifying dog breeds.</p>
-          <a href="https://github.com/inesgcalvo/dog_image_classification" target="_blank">View GitHub →</a>
+          <a href="https://github.com/inesgcalvo/dog_image_classification" target="_blank" rel="noopener">View GitHub →</a>
         </article>
-        
+
         <article class="project-item">
           <h4>Price Prediction</h4>
           <p>Regression model for heavy machinery auction prices.</p>
-          <a href="https://github.com/inesgcalvo/Bulldozer_price_prediction" target="_blank">View GitHub →</a>
+          <a href="https://github.com/inesgcalvo/Bulldozer_price_prediction" target="_blank" rel="noopener">View GitHub →</a>
         </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- Models Panel — TODO: replace with real content -->
+  <div class="info-panel" id="panel-models">
+    <div class="panel-content">
+      <button class="close-panel" aria-label="Close">&times;</button>
+      <h2 class="panel-title">Models</h2>
+      <div class="panel-text wip">
+        <p class="lead-text">Under construction.</p>
+        <p>Trained models, experiments and notebooks will live here soon.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photography Panel — TODO: replace with real content -->
+  <div class="info-panel" id="panel-photography">
+    <div class="panel-content">
+      <button class="close-panel" aria-label="Close">&times;</button>
+      <h2 class="panel-title">Photography</h2>
+      <div class="panel-text wip">
+        <p class="lead-text">Under construction.</p>
+        <p>A selection of photographs is on its way.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Drawings Panel — TODO: replace with real content -->
+  <div class="info-panel" id="panel-drawings">
+    <div class="panel-content">
+      <button class="close-panel" aria-label="Close">&times;</button>
+      <h2 class="panel-title">Drawings</h2>
+      <div class="panel-text wip">
+        <p class="lead-text">Under construction.</p>
+        <p>Sketches and illustrations are on their way.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Others Panel -->
+  <div class="info-panel" id="panel-others">
+    <div class="panel-content">
+      <button class="close-panel" aria-label="Close">&times;</button>
+      <h2 class="panel-title">Others</h2>
+      <div class="panel-text wip">
+        <p class="lead-text">Under construction.</p>
+        <p>This branch of the molecule is still growing.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fragments Panel -->
+  <div class="info-panel" id="panel-fragments">
+    <div class="panel-content">
+      <button class="close-panel" aria-label="Close">&times;</button>
+      <h2 class="panel-title">Fragments</h2>
+      <div class="panel-text wip">
+        <p class="lead-text">Under construction.</p>
+        <p>Small pieces, notes and unfinished ideas will be collected here.</p>
       </div>
     </div>
   </div>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="page-html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Inés G. Calvo">
+  <meta name="description" content="Contact Inés González Calvo by email.">
+  <title>Contact · Inés G. Calvo</title>
+  <link rel="shortcut icon" href="img/logo_inesgcalvo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page">
+
+  <div class="page-wrap">
+
+    <nav class="page-nav">
+      <a class="back-link" href="index.html">
+        <svg class="hex-mark" viewBox="0 0 100 86.6" aria-hidden="true"><polygon points="100,43.3 75,0 25,0 0,43.3 25,86.6 75,86.6"/></svg>
+        Back to the molecule
+      </a>
+    </nav>
+
+    <header class="page-header">
+      <h1 class="page-title">Contact</h1>
+      <p class="page-kicker">Say hello</p>
+    </header>
+
+    <main class="page-body">
+      <p class="lead-text">Happy to talk about data science, neuroscience or anything in between.</p>
+
+      <!-- The address is not in the markup: mail.js assembles it from the two
+           base64 chunks below, so e-mail harvesters scraping the HTML find nothing. -->
+      <p style="margin-top: 2rem;">
+        <button class="action-btn" id="mail-btn" data-u="aW5nbGV6" data-d="Z21haWwuY29t">Write me an email ✉</button>
+      </p>
+      <p class="action-note">
+        <span id="mail-note" hidden></span>
+        <button class="text-btn" id="mail-copy" hidden>Copy address</button>
+      </p>
+      <noscript>
+        <p class="action-note">The address is hidden from bots and needs JavaScript. You can also reach me through LinkedIn below.</p>
+      </noscript>
+
+      <section class="page-section">
+        <h2 class="section-title">Elsewhere</h2>
+        <div class="entry">
+          <h3>LinkedIn</h3>
+          <p><a href="https://www.linkedin.com/in/ines-g-calvo" target="_blank" rel="noopener">linkedin.com/in/ines-g-calvo →</a></p>
+        </div>
+        <div class="entry">
+          <h3>GitHub</h3>
+          <p><a href="https://github.com/inesgcalvo" target="_blank" rel="noopener">github.com/inesgcalvo →</a></p>
+        </div>
+        <div class="entry">
+          <h3>ORCID</h3>
+          <p><a href="https://orcid.org/0000-0002-2652-2160" target="_blank" rel="noopener">0000-0002-2652-2160 →</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <p>Inés G. Calvo, Ph.D. · Data Scientist &amp; Neuroscientist</p>
+      <nav class="social-links">
+        <a href="https://github.com/inesgcalvo" target="_blank" rel="noopener" class="social-link">GitHub</a>
+        <span class="separator">|</span>
+        <a href="https://www.linkedin.com/in/ines-g-calvo" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
+      </nav>
+    </footer>
+
+  </div>
+
+  <script src="js/mail.js"></script>
+
+</body>
+</html>
