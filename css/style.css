@@ -612,6 +612,106 @@ body.page {
 .entry p { font-size: 0.95rem; color: var(--text-dark); margin-top: 0.35rem; }
 .entry a { color: var(--accent-green); font-weight: 600; font-size: 0.8rem; text-decoration: none; }
 
+/* Citation count, appended to the entry-meta line */
+.cited-by {
+  color: var(--primary-green);
+  font-weight: 600;
+}
+
+.metrics-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 1.75rem;
+}
+
+.metrics-note a {
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.metrics-note a:hover { color: var(--primary-green); }
+
+/* --- Citation style switcher (publications) --- */
+.cite-switch {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-top: 2rem;
+}
+
+.cite-switch-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+}
+
+.cite-options {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(45, 90, 39, 0.28);
+  border-radius: 50px;
+  padding: 0.25rem;
+}
+
+.cite-btn {
+  background: none;
+  border: none;
+  border-radius: 50px;
+  padding: 0.45rem 1.1rem;
+  font-family: var(--font-main);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary-green);
+  cursor: pointer;
+  transition: background 0.3s var(--ease-smooth), color 0.3s var(--ease-smooth);
+}
+
+.cite-btn:hover { background: rgba(45, 90, 39, 0.1); }
+
+.cite-btn.is-active {
+  background: var(--primary-green);
+  color: var(--bg-color);
+}
+
+/* Each entry carries all three citations; only the selected one shows.
+   Defaults to APA so the list still reads correctly without JavaScript. */
+.citation {
+  display: none;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+  margin-top: 0.5rem;
+}
+
+.citation em { font-style: italic; }
+.citation strong { font-weight: 600; color: var(--primary-green); }
+
+#pub-list[data-style="apa"]     .citation[data-style="apa"],
+#pub-list[data-style="mla"]     .citation[data-style="mla"],
+#pub-list[data-style="harvard"] .citation[data-style="harvard"] { display: block; }
+
+.entry-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  margin-top: 0.9rem;
+}
+
+.entry-tag {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin-left: -1.1rem;
+}
+
 .placeholder-note {
   font-size: 0.8rem;
   color: var(--text-muted);
