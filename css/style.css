@@ -612,6 +612,26 @@ body.page {
 .entry p { font-size: 0.95rem; color: var(--text-dark); margin-top: 0.35rem; }
 .entry a { color: var(--accent-green); font-weight: 600; font-size: 0.8rem; text-decoration: none; }
 
+/* Citation count, appended to the entry-meta line */
+.cited-by {
+  color: var(--primary-green);
+  font-weight: 600;
+}
+
+.metrics-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 1.75rem;
+}
+
+.metrics-note a {
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.metrics-note a:hover { color: var(--primary-green); }
+
 /* --- Citation style switcher (publications) --- */
 .cite-switch {
   display: flex;
