@@ -748,3 +748,175 @@ body.page {
 }
 
 .text-btn:hover { opacity: 0.75; }
+
+/* ============================================================
+   PHOTO GALLERY — grid + lightbox
+   ============================================================ */
+
+/* Photographs deserve more room than the 780px reading measure, so a
+   gallery page widens the whole wrap — title, text and grid stay on one
+   left edge — and puts the measure back on the prose alone. */
+.page-gallery .page-wrap { max-width: 1100px; }
+.page-gallery .page-body > p { max-width: 62ch; }
+
+.gallery {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.1rem;
+}
+
+.shot { margin: 0; }
+
+/* The thumbnail itself is the button, so the whole tile is one hit
+   target and keyboard focus lands where the eye already is. */
+.shot-open {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+  border-radius: 3px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.shot-open img {
+  width: 100%;
+  /* height:auto is load-bearing: the width/height attributes on the tag
+     (there to reserve the box before the file lands) map to CSS width and
+     height, and a used height would win over aspect-ratio. */
+  height: auto;
+  /* Uniform tiles keep the grid calm; the lightbox shows the photograph
+     uncropped. Portrait 4:5 suits the frames these were shot in. */
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.92);
+  transition: transform 0.5s var(--ease-smooth), filter 0.4s var(--ease-smooth);
+}
+
+.shot-open:hover img,
+.shot-open:focus-visible img {
+  transform: scale(1.04);
+  filter: saturate(1.05);
+}
+
+.shot-open:focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 3px;
+}
+
+.shot figcaption {
+  margin-top: 0.45rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.rights-note {
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(45, 90, 39, 0.18);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 46ch;
+}
+
+.rights-note a { color: var(--accent-green); font-weight: 600; text-decoration: none; }
+.rights-note a:hover { color: var(--primary-green); }
+
+/* --- Lightbox --- */
+body.lightbox-open { overflow: hidden; }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 1rem;
+  background: rgba(27, 48, 34, 0.94);
+  animation: lightbox-in 0.25s var(--ease-smooth);
+}
+
+.lightbox[hidden] { display: none; }
+
+@keyframes lightbox-in { from { opacity: 0; } to { opacity: 1; } }
+
+.lightbox-figure {
+  margin: 0;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  /* Leave room for the caption and the padding above. */
+  max-height: calc(100vh - 8rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+.lightbox-caption {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.lightbox-close,
+.lightbox-nav {
+  position: absolute;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-family: var(--font-main);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s var(--ease-smooth);
+  line-height: 1;
+  padding: 0.5rem 0.9rem;
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover,
+.lightbox-close:focus-visible,
+.lightbox-nav:focus-visible { opacity: 1; }
+
+/* Spell the focus ring out: the browser default is a filled block against
+   this dark backdrop. */
+.lightbox-close:focus-visible,
+.lightbox-nav:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.55);
+  outline-offset: 1px;
+  border-radius: 3px;
+}
+
+.lightbox-close { top: 1rem; right: 1.25rem; font-size: 2.2rem; }
+
+.lightbox-nav { top: 50%; transform: translateY(-50%); font-size: 3rem; }
+.lightbox-prev { left: 0.5rem; }
+.lightbox-next { right: 0.5rem; }
+
+@media (max-width: 800px) {
+  .gallery { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.8rem; }
+  .lightbox { padding: 3rem 0.5rem; }
+  .lightbox-nav { font-size: 2.2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shot-open img,
+  .lightbox { transition: none; animation: none; }
+  .shot-open:hover img { transform: none; }
+}
