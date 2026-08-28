@@ -4,7 +4,7 @@
 For every entry in `data/<gallery>.json` this script
 
   1. reads the master from `photos_src/<gallery>/`,
-  2. writes a display copy and a grid thumbnail into `img/<gallery>/`,
+  2. writes a display copy and a filmstrip thumbnail into `img/<gallery>/`,
   3. strips the camera metadata (device, serial numbers, GPS, original
      filename) and puts the copyright back in its place, and
   4. regenerates the markup between the gallery markers in
@@ -51,9 +51,9 @@ SRC_DIR = ROOT / "photos_src"
 DATA_DIR = ROOT / "data"
 IMG_DIR = ROOT / "img"
 
-# Long edge in pixels. The display copy is what the lightbox opens, so it
+# Long edge in pixels. The display copy fills the carousel stage, so it
 # has to survive a full-screen desktop; the thumbnail only ever fills a
-# grid cell, at 2x for retina.
+# filmstrip cell, at 2x for retina.
 DISPLAY_PX = 1600
 THUMB_PX = 800
 DISPLAY_QUALITY = 82
@@ -142,27 +142,79 @@ def pretty_date(iso):
     return f"{d.day} {d:%B} {d.year}"
 
 
-def figure_markup(gallery, photo, indent):
-    """One grid cell. Static HTML, so the gallery works without scripts.
+def taxon_markup(taxon):
+    """A scientific name set the way a taxonomist expects to read it.
 
-    The thumbnail carries the display copy's URL and size on data
-    attributes; the lightbox reads them from there instead of keeping a
-    second copy of the list in JavaScript.
+    Genus and species in italics, the genus capitalised and the species
+    not; the qualifier ("cf.") and the "sp." of an open determination stay
+    upright, because they are not part of the name; the author citation
+    upright too, and smaller. `<i>` is the right element here — HTML calls
+    out taxonomic designations as one of its jobs.
+
+    Returns '' when there is no determination, which is a valid state: an
+    animal nobody has named yet still gets a date.
     """
+    if not taxon or not taxon.get("genus"):
+        return ""
+
+    parts = [f'<i>{html.escape(taxon["genus"])}</i>']
+    if taxon.get("qualifier"):
+        parts.append(html.escape(taxon["qualifier"]))
+    if taxon.get("species"):
+        parts.append(f'<i>{html.escape(taxon["species"])}</i>')
+    else:
+        # Open nomenclature: the genus is settled, the species is not.
+        parts.append("sp.")
+    if taxon.get("authority"):
+        parts.append(
+            f'<span class="taxon-authority">{html.escape(taxon["authority"])}</span>'
+        )
+    return f'<span class="taxon">{" ".join(parts)}</span>'
+
+
+def caption_markup(photo):
+    """The species, then the date — separated only when both are there."""
+    taxon = taxon_markup(photo.get("taxon"))
+    when = (
+        f'<time datetime="{photo["date"]}">{pretty_date(photo["date"])}</time>'
+    )
+    return f'{taxon}<span class="caption-sep">·</span>{when}' if taxon else when
+
+
+def slide_markup(gallery, photo, i, indent):
+    """One full-size frame. Only the active one is displayed."""
     pad = " " * indent
+    active = " is-active" if i == 0 else ""
+    # The first frame is what the visitor sees on arrival, so it loads
+    # eagerly; the rest wait until the carousel reaches them.
+    loading = "eager" if i == 0 else "lazy"
     return (
-        f'{pad}<figure class="shot">\n'
-        f'{pad}  <button type="button" class="shot-open"\n'
-        f'{pad}          data-full="img/{gallery}/{photo["slug"]}.jpg"\n'
-        f'{pad}          data-full-w="{photo["display_w"]}" data-full-h="{photo["display_h"]}"\n'
-        f'{pad}          data-caption="{html.escape(pretty_date(photo["date"]), quote=True)}">\n'
-        f'{pad}    <img src="img/{gallery}/thumb/{photo["slug"]}.jpg"\n'
-        f'{pad}         width="{photo["thumb_w"]}" height="{photo["thumb_h"]}"\n'
-        f'{pad}         loading="lazy" decoding="async"\n'
-        f'{pad}         alt="{html.escape(photo["alt"], quote=True)}">\n'
-        f"{pad}  </button>\n"
-        f'{pad}  <figcaption><time datetime="{photo["date"]}">{pretty_date(photo["date"])}</time></figcaption>\n'
+        f'{pad}<figure class="slide{active}" data-index="{i}">\n'
+        f'{pad}  <img src="img/{gallery}/{photo["slug"]}.jpg"\n'
+        f'{pad}       width="{photo["display_w"]}" height="{photo["display_h"]}"\n'
+        f'{pad}       loading="{loading}" decoding="async"\n'
+        f'{pad}       alt="{html.escape(photo["alt"], quote=True)}">\n'
+        f'{pad}  <figcaption class="slide-caption">{caption_markup(photo)}</figcaption>\n'
         f"{pad}</figure>"
+    )
+
+
+def thumb_markup(gallery, photo, i, indent):
+    """One frame of the filmstrip under the stage."""
+    pad = " " * indent
+    active = " is-active" if i == 0 else ""
+    # The accessible name is the determination, falling back to the date —
+    # "Melanargia cf. lachesis" tells a screen-reader user far more about
+    # where they are in the strip than "photograph 12 of 20" would.
+    label = re.sub(r"<[^>]+>", "", caption_markup(photo)).replace("·", "—")
+    return (
+        f'{pad}<button type="button" class="thumb{active}" role="tab"\n'
+        f'{pad}        data-index="{i}" aria-selected="{str(i == 0).lower()}"\n'
+        f'{pad}        aria-label="{html.escape(label, quote=True)}">\n'
+        f'{pad}  <img src="img/{gallery}/thumb/{photo["slug"]}.jpg"\n'
+        f'{pad}       width="{photo["thumb_w"]}" height="{photo["thumb_h"]}"\n'
+        f'{pad}       loading="lazy" decoding="async" alt="">\n'
+        f"{pad}</button>"
     )
 
 
@@ -178,7 +230,27 @@ def splice(page, markup):
         sys.exit(f"{page.name}: no {MARKER_START} / {MARKER_END} pair to write into")
 
     indent = match.group(1)
-    body = "\n".join(figure_markup(page.stem, p, len(indent) + 2) for p in markup)
+    gallery = page.stem
+    n = len(markup)
+    pad, inner = indent + "  ", len(indent) + 4
+
+    slides = "\n".join(slide_markup(gallery, p, i, inner) for i, p in enumerate(markup))
+    thumbs = "\n".join(thumb_markup(gallery, p, i, inner) for i, p in enumerate(markup))
+
+    # The prev/next buttons live inside the stage so they can sit over the
+    # photograph; the filmstrip is a tablist, which is what it behaves like.
+    body = (
+        f'{pad}<div class="carousel" data-count="{n}">\n'
+        f'{pad}  <div class="stage">\n'
+        f'{pad}    <button type="button" class="stage-nav stage-prev" aria-label="Previous photograph">&#8249;</button>\n'
+        f"{slides}\n"
+        f'{pad}    <button type="button" class="stage-nav stage-next" aria-label="Next photograph">&#8250;</button>\n'
+        f"{pad}  </div>\n"
+        f'{pad}  <div class="filmstrip" role="tablist" aria-label="Choose a photograph">\n'
+        f"{thumbs}\n"
+        f"{pad}  </div>\n"
+        f"{pad}</div>"
+    )
     block = f"{indent}{MARKER_START}\n{body}\n{indent}{MARKER_END}"
     updated = text[: match.start()] + block + text[match.end() :]
 

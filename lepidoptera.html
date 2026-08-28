@@ -7,8 +7,9 @@
   <meta name="description" content="Lepidoptera — butterflies photographed in the field by Inés González Calvo.">
   <meta name="copyright" content="© 2026 Inés G. Calvo. All rights reserved.">
   <title>Lepidoptera · Inés G. Calvo</title>
+  <meta name="theme-color" content="#0b0b0c">
   <link rel="shortcut icon" href="img/logo_inesgcalvo.png">
-  <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="stylesheet" href="css/style.css?v=6">
 </head>
 <body class="page page-gallery">
 
@@ -30,247 +31,307 @@
       <p class="lead-text">Butterflies photographed in the field, summer 2026. No captive specimens, no baiting — every animal was left exactly where it was found.</p>
 
       <div class="gallery" id="gallery">
+        <noscript>
+          <!-- No scripts: unfold the carousel into a plain vertical list.
+               Undoing the stage's flex row and fixed height matters as much
+               as revealing the frames — without it the twenty of them line
+               up sideways and get clipped. -->
+          <style>
+            .stage { display: block; height: auto; }
+            .slide { display: block; margin: 0 0 2.5rem; }
+            .slide img { max-height: 80vh; }
+            .stage-nav, .filmstrip { display: none; }
+          </style>
+        </noscript>
         <!-- gallery:start -->
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-01.jpg"
-                    data-full-w="1205" data-full-h="1600"
-                    data-caption="25 May 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-01.jpg"
-                   width="602" height="800"
-                   loading="lazy" decoding="async"
+          <div class="carousel" data-count="20">
+            <div class="stage">
+              <button type="button" class="stage-nav stage-prev" aria-label="Previous photograph">&#8249;</button>
+            <figure class="slide is-active" data-index="0">
+              <img src="img/lepidoptera/lepidoptera-01.jpg"
+                   width="1205" height="1600"
+                   loading="eager" decoding="async"
                    alt="Orange and black fritillary resting with open wings among green grass stems.">
-            </button>
-            <figcaption><time datetime="2026-05-25">25 May 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-02.jpg"
-                    data-full-w="1205" data-full-h="1600"
-                    data-caption="30 May 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-02.jpg"
-                   width="602" height="800"
+              <figcaption class="slide-caption"><span class="taxon"><i>Melitaea</i> sp.</span><span class="caption-sep">·</span><time datetime="2026-05-25">25 May 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="1">
+              <img src="img/lepidoptera/lepidoptera-02.jpg"
+                   width="1205" height="1600"
                    loading="lazy" decoding="async"
                    alt="Fritillary with closed wings feeding on a magenta knapweed flower.">
-            </button>
-            <figcaption><time datetime="2026-05-30">30 May 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-03.jpg"
-                    data-full-w="1205" data-full-h="1600"
-                    data-caption="3 June 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-03.jpg"
-                   width="602" height="800"
+              <figcaption class="slide-caption"><span class="taxon"><i>Melitaea</i> sp.</span><span class="caption-sep">·</span><time datetime="2026-05-30">30 May 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="2">
+              <img src="img/lepidoptera/lepidoptera-03.jpg"
+                   width="1205" height="1600"
                    loading="lazy" decoding="async"
                    alt="Fritillary perched on a purple thistle head above bare, sunlit ground.">
-            </button>
-            <figcaption><time datetime="2026-06-03">3 June 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-04.jpg"
-                    data-full-w="1205" data-full-h="1600"
-                    data-caption="8 June 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-04.jpg"
-                   width="602" height="800"
+              <figcaption class="slide-caption"><span class="taxon"><i>Melitaea</i> sp.</span><span class="caption-sep">·</span><time datetime="2026-06-03">3 June 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="3">
+              <img src="img/lepidoptera/lepidoptera-04.jpg"
+                   width="1205" height="1600"
                    loading="lazy" decoding="async"
                    alt="Small dark butterfly with folded wings on a white pompom flower.">
-            </button>
-            <figcaption><time datetime="2026-06-08">8 June 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-05.jpg"
-                    data-full-w="1205" data-full-h="1600"
-                    data-caption="9 June 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-05.jpg"
-                   width="602" height="800"
+              <figcaption class="slide-caption"><time datetime="2026-06-08">8 June 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="4">
+              <img src="img/lepidoptera/lepidoptera-05.jpg"
+                   width="1205" height="1600"
                    loading="lazy" decoding="async"
                    alt="A fritillary and a ladybird sharing the same yellow umbel of tiny flowers.">
-            </button>
-            <figcaption><time datetime="2026-06-09">9 June 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-06.jpg"
-                    data-full-w="1205" data-full-h="1600"
-                    data-caption="9 June 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-06.jpg"
-                   width="602" height="800"
+              <figcaption class="slide-caption"><span class="taxon"><i>Melitaea</i> sp.</span><span class="caption-sep">·</span><time datetime="2026-06-09">9 June 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="5">
+              <img src="img/lepidoptera/lepidoptera-06.jpg"
+                   width="1205" height="1600"
                    loading="lazy" decoding="async"
                    alt="Two fritillaries with wings fully spread, feeding side by side on yellow umbels.">
-            </button>
-            <figcaption><time datetime="2026-06-09">9 June 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-07.jpg"
-                    data-full-w="1205" data-full-h="1600"
-                    data-caption="9 June 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-07.jpg"
-                   width="602" height="800"
+              <figcaption class="slide-caption"><span class="taxon"><i>Melitaea</i> sp.</span><span class="caption-sep">·</span><time datetime="2026-06-09">9 June 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="6">
+              <img src="img/lepidoptera/lepidoptera-07.jpg"
+                   width="1205" height="1600"
                    loading="lazy" decoding="async"
                    alt="Three fritillaries scattered across a stand of yellow umbellifer flowers.">
-            </button>
-            <figcaption><time datetime="2026-06-09">9 June 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-08.jpg"
-                    data-full-w="1205" data-full-h="1600"
-                    data-caption="10 June 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-08.jpg"
-                   width="602" height="800"
+              <figcaption class="slide-caption"><span class="taxon"><i>Melitaea</i> sp.</span><span class="caption-sep">·</span><time datetime="2026-06-09">9 June 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="7">
+              <img src="img/lepidoptera/lepidoptera-08.jpg"
+                   width="1205" height="1600"
                    loading="lazy" decoding="async"
                    alt="Fritillary with wings closed, showing its patterned underside, on a white umbel.">
-            </button>
-            <figcaption><time datetime="2026-06-10">10 June 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-09.jpg"
-                    data-full-w="1205" data-full-h="1600"
-                    data-caption="10 June 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-09.jpg"
-                   width="602" height="800"
+              <figcaption class="slide-caption"><span class="taxon"><i>Melitaea</i> sp.</span><span class="caption-sep">·</span><time datetime="2026-06-10">10 June 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="8">
+              <img src="img/lepidoptera/lepidoptera-09.jpg"
+                   width="1205" height="1600"
                    loading="lazy" decoding="async"
                    alt="Dark fritillary seen head-on from behind while feeding on a white umbel.">
-            </button>
-            <figcaption><time datetime="2026-06-10">10 June 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-10.jpg"
-                    data-full-w="1205" data-full-h="1600"
-                    data-caption="10 June 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-10.jpg"
-                   width="602" height="800"
+              <figcaption class="slide-caption"><span class="taxon"><i>Melitaea</i> sp.</span><span class="caption-sep">·</span><time datetime="2026-06-10">10 June 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="9">
+              <img src="img/lepidoptera/lepidoptera-10.jpg"
+                   width="1205" height="1600"
                    loading="lazy" decoding="async"
                    alt="Fritillary basking with open wings on the frond of a fern.">
-            </button>
-            <figcaption><time datetime="2026-06-10">10 June 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-11.jpg"
-                    data-full-w="1200" data-full-h="1600"
-                    data-caption="13 July 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-11.jpg"
-                   width="600" height="800"
+              <figcaption class="slide-caption"><span class="taxon"><i>Melitaea</i> sp.</span><span class="caption-sep">·</span><time datetime="2026-06-10">10 June 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="10">
+              <img src="img/lepidoptera/lepidoptera-11.jpg"
+                   width="1200" height="1600"
                    loading="lazy" decoding="async"
                    alt="Black and white marbled butterfly feeding on a yellow thistle in dry grassland.">
-            </button>
-            <figcaption><time datetime="2026-07-13">13 July 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-12.jpg"
-                    data-full-w="1200" data-full-h="1600"
-                    data-caption="15 July 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-12.jpg"
-                   width="600" height="800"
+              <figcaption class="slide-caption"><span class="taxon"><i>Melanargia</i> cf. <i>lachesis</i> <span class="taxon-authority">(Hübner, 1790)</span></span><span class="caption-sep">·</span><time datetime="2026-07-13">13 July 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="11">
+              <img src="img/lepidoptera/lepidoptera-12.jpg"
+                   width="1200" height="1600"
                    loading="lazy" decoding="async"
                    alt="Marbled butterfly with open wings among purple knapweed heads.">
-            </button>
-            <figcaption><time datetime="2026-07-15">15 July 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-13.jpg"
-                    data-full-w="1200" data-full-h="1600"
-                    data-caption="15 July 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-13.jpg"
-                   width="600" height="800"
+              <figcaption class="slide-caption"><span class="taxon"><i>Melanargia</i> cf. <i>lachesis</i> <span class="taxon-authority">(Hübner, 1790)</span></span><span class="caption-sep">·</span><time datetime="2026-07-15">15 July 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="12">
+              <img src="img/lepidoptera/lepidoptera-13.jpg"
+                   width="1200" height="1600"
                    loading="lazy" decoding="async"
                    alt="Marbled butterfly drinking from a purple thistle flower.">
-            </button>
-            <figcaption><time datetime="2026-07-15">15 July 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-14.jpg"
-                    data-full-w="1200" data-full-h="1600"
-                    data-caption="15 July 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-14.jpg"
-                   width="600" height="800"
+              <figcaption class="slide-caption"><span class="taxon"><i>Melanargia</i> cf. <i>lachesis</i> <span class="taxon-authority">(Hübner, 1790)</span></span><span class="caption-sep">·</span><time datetime="2026-07-15">15 July 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="13">
+              <img src="img/lepidoptera/lepidoptera-14.jpg"
+                   width="1200" height="1600"
                    loading="lazy" decoding="async"
                    alt="Marbled butterfly with wings folded upright on a purple flower, sky behind.">
-            </button>
-            <figcaption><time datetime="2026-07-15">15 July 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-15.jpg"
-                    data-full-w="1200" data-full-h="1600"
-                    data-caption="15 July 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-15.jpg"
-                   width="600" height="800"
+              <figcaption class="slide-caption"><span class="taxon"><i>Melanargia</i> cf. <i>lachesis</i> <span class="taxon-authority">(Hübner, 1790)</span></span><span class="caption-sep">·</span><time datetime="2026-07-15">15 July 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="14">
+              <img src="img/lepidoptera/lepidoptera-15.jpg"
+                   width="1200" height="1600"
                    loading="lazy" decoding="async"
                    alt="Orange butterfly with folded wings and a long proboscis extended into a yellow thistle.">
-            </button>
-            <figcaption><time datetime="2026-07-15">15 July 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-16.jpg"
-                    data-full-w="1201" data-full-h="1600"
-                    data-caption="16 July 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-16.jpg"
-                   width="601" height="800"
+              <figcaption class="slide-caption"><span class="taxon"><i>Argynnis</i> sp.</span><span class="caption-sep">·</span><time datetime="2026-07-15">15 July 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="15">
+              <img src="img/lepidoptera/lepidoptera-16.jpg"
+                   width="1201" height="1600"
                    loading="lazy" decoding="async"
                    alt="Marbled butterfly on a yellow thistle, pine trees and blue sky behind.">
-            </button>
-            <figcaption><time datetime="2026-07-16">16 July 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-17.jpg"
-                    data-full-w="1600" data-full-h="1200"
-                    data-caption="16 July 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-17.jpg"
-                   width="800" height="600"
+              <figcaption class="slide-caption"><span class="taxon"><i>Melanargia</i> cf. <i>lachesis</i> <span class="taxon-authority">(Hübner, 1790)</span></span><span class="caption-sep">·</span><time datetime="2026-07-16">16 July 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="16">
+              <img src="img/lepidoptera/lepidoptera-17.jpg"
+                   width="1600" height="1200"
                    loading="lazy" decoding="async"
                    alt="Fritillary with closed wings clinging to a spiny green flower bud.">
-            </button>
-            <figcaption><time datetime="2026-07-16">16 July 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-18.jpg"
-                    data-full-w="1200" data-full-h="1600"
-                    data-caption="16 July 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-18.jpg"
-                   width="600" height="800"
+              <figcaption class="slide-caption"><span class="taxon"><i>Issoria</i> cf. <i>lathonia</i> <span class="taxon-authority">(Linnaeus, 1758)</span></span><span class="caption-sep">·</span><time datetime="2026-07-16">16 July 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="17">
+              <img src="img/lepidoptera/lepidoptera-18.jpg"
+                   width="1200" height="1600"
                    loading="lazy" decoding="async"
                    alt="Pale patterned butterfly with wings raised over a yellow thistle.">
-            </button>
-            <figcaption><time datetime="2026-07-16">16 July 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-19.jpg"
-                    data-full-w="1201" data-full-h="1600"
-                    data-caption="30 July 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-19.jpg"
-                   width="601" height="800"
+              <figcaption class="slide-caption"><span class="taxon"><i>Melanargia</i> sp.</span><span class="caption-sep">·</span><time datetime="2026-07-16">16 July 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="18">
+              <img src="img/lepidoptera/lepidoptera-19.jpg"
+                   width="1201" height="1600"
                    loading="lazy" decoding="async"
                    alt="Large orange fritillary with wings fully open on a spiny sea holly flower.">
-            </button>
-            <figcaption><time datetime="2026-07-30">30 July 2026</time></figcaption>
-          </figure>
-          <figure class="shot">
-            <button type="button" class="shot-open"
-                    data-full="img/lepidoptera/lepidoptera-20.jpg"
-                    data-full-w="1600" data-full-h="1577"
-                    data-caption="30 July 2026">
-              <img src="img/lepidoptera/thumb/lepidoptera-20.jpg"
-                   width="800" height="788"
+              <figcaption class="slide-caption"><span class="taxon"><i>Argynnis</i> sp.</span><span class="caption-sep">·</span><time datetime="2026-07-30">30 July 2026</time></figcaption>
+            </figure>
+            <figure class="slide" data-index="19">
+              <img src="img/lepidoptera/lepidoptera-20.jpg"
+                   width="1600" height="1577"
                    loading="lazy" decoding="async"
                    alt="Fritillary with wings closed showing a mottled olive underside, on sea holly.">
+              <figcaption class="slide-caption"><span class="taxon"><i>Argynnis</i> sp.</span><span class="caption-sep">·</span><time datetime="2026-07-30">30 July 2026</time></figcaption>
+            </figure>
+              <button type="button" class="stage-nav stage-next" aria-label="Next photograph">&#8250;</button>
+            </div>
+            <div class="filmstrip" role="tablist" aria-label="Choose a photograph">
+            <button type="button" class="thumb is-active" role="tab"
+                    data-index="0" aria-selected="true"
+                    aria-label="Melitaea sp.—25 May 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-01.jpg"
+                   width="602" height="800"
+                   loading="lazy" decoding="async" alt="">
             </button>
-            <figcaption><time datetime="2026-07-30">30 July 2026</time></figcaption>
-          </figure>
+            <button type="button" class="thumb" role="tab"
+                    data-index="1" aria-selected="false"
+                    aria-label="Melitaea sp.—30 May 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-02.jpg"
+                   width="602" height="800"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="2" aria-selected="false"
+                    aria-label="Melitaea sp.—3 June 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-03.jpg"
+                   width="602" height="800"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="3" aria-selected="false"
+                    aria-label="8 June 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-04.jpg"
+                   width="602" height="800"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="4" aria-selected="false"
+                    aria-label="Melitaea sp.—9 June 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-05.jpg"
+                   width="602" height="800"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="5" aria-selected="false"
+                    aria-label="Melitaea sp.—9 June 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-06.jpg"
+                   width="602" height="800"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="6" aria-selected="false"
+                    aria-label="Melitaea sp.—9 June 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-07.jpg"
+                   width="602" height="800"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="7" aria-selected="false"
+                    aria-label="Melitaea sp.—10 June 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-08.jpg"
+                   width="602" height="800"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="8" aria-selected="false"
+                    aria-label="Melitaea sp.—10 June 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-09.jpg"
+                   width="602" height="800"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="9" aria-selected="false"
+                    aria-label="Melitaea sp.—10 June 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-10.jpg"
+                   width="602" height="800"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="10" aria-selected="false"
+                    aria-label="Melanargia cf. lachesis (Hübner, 1790)—13 July 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-11.jpg"
+                   width="600" height="800"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="11" aria-selected="false"
+                    aria-label="Melanargia cf. lachesis (Hübner, 1790)—15 July 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-12.jpg"
+                   width="600" height="800"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="12" aria-selected="false"
+                    aria-label="Melanargia cf. lachesis (Hübner, 1790)—15 July 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-13.jpg"
+                   width="600" height="800"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="13" aria-selected="false"
+                    aria-label="Melanargia cf. lachesis (Hübner, 1790)—15 July 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-14.jpg"
+                   width="600" height="800"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="14" aria-selected="false"
+                    aria-label="Argynnis sp.—15 July 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-15.jpg"
+                   width="600" height="800"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="15" aria-selected="false"
+                    aria-label="Melanargia cf. lachesis (Hübner, 1790)—16 July 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-16.jpg"
+                   width="601" height="800"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="16" aria-selected="false"
+                    aria-label="Issoria cf. lathonia (Linnaeus, 1758)—16 July 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-17.jpg"
+                   width="800" height="600"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="17" aria-selected="false"
+                    aria-label="Melanargia sp.—16 July 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-18.jpg"
+                   width="600" height="800"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="18" aria-selected="false"
+                    aria-label="Argynnis sp.—30 July 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-19.jpg"
+                   width="601" height="800"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            <button type="button" class="thumb" role="tab"
+                    data-index="19" aria-selected="false"
+                    aria-label="Argynnis sp.—30 July 2026">
+              <img src="img/lepidoptera/thumb/lepidoptera-20.jpg"
+                   width="800" height="788"
+                   loading="lazy" decoding="async" alt="">
+            </button>
+            </div>
+          </div>
         <!-- gallery:end -->
       </div>
 
@@ -294,17 +355,6 @@
 
   </div>
 
-  <!-- Lightbox — populated by js/gallery.js, inert without it -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photograph" hidden>
-    <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
-    <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous photograph">&#8249;</button>
-    <button type="button" class="lightbox-nav lightbox-next" aria-label="Next photograph">&#8250;</button>
-    <figure class="lightbox-figure">
-      <img class="lightbox-img" src="" alt="">
-      <figcaption class="lightbox-caption"></figcaption>
-    </figure>
-  </div>
-
-  <script src="js/gallery.js?v=1"></script>
+  <script src="js/gallery.js?v=2"></script>
 </body>
 </html>
