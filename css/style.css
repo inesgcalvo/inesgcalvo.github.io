@@ -748,3 +748,204 @@ body.page {
 }
 
 .text-btn:hover { opacity: 0.75; }
+
+/* ============================================================
+   PHOTO GALLERY — dark theme + carousel
+   ============================================================ */
+
+/* A gallery page rebinds the palette rather than restating it: every rule
+   already written against these tokens — title, back link, footer, links —
+   follows the photographs onto black without being touched again. */
+.page-gallery {
+  --bg-color:      #0b0b0c;
+  /* Every text token resolves to white here: on these pages the type is
+     one colour and hierarchy comes from size, weight and spacing alone. */
+  --text-dark:     #ffffff;
+  --text-muted:    #ffffff;
+  --primary-green: #ffffff;
+  --accent-green:  #ffffff;
+  --rule:          rgba(255, 255, 255, 0.13);
+}
+
+/* Colour no longer marks a link, so an underline has to. */
+.page-gallery .page-body a,
+.page-gallery .page-footer a { text-decoration: underline; text-underline-offset: 0.2em; }
+.page-gallery .back-link { text-decoration: none; }
+
+/* The class sits on <body>; naming html too keeps the overscroll area
+   black instead of flashing the site's green behind a bounce scroll. */
+.page-gallery { background-color: var(--bg-color); }
+html:has(> .page-gallery) { background-color: #0b0b0c; }
+
+/* The few borders that predate the tokens and hardcode a green. */
+.page-gallery .page-footer,
+.page-gallery .rights-note { border-top-color: var(--rule); }
+.page-gallery .hex-mark polygon { stroke: var(--primary-green); }
+
+/* Photographs want more room than the 780px reading measure, so a gallery
+   page widens the whole wrap — title, text and carousel share one left
+   edge — and puts the measure back on the prose alone. */
+.page-gallery .page-wrap { max-width: 1100px; }
+.page-gallery .page-body > p { max-width: 62ch; }
+
+/* --- Scientific names --- */
+
+/* Genus and species italic; "cf.", "sp." and the author citation upright,
+   because none of them is part of the name. */
+.taxon { font-style: normal; color: var(--text-dark); }
+.taxon i { font-style: italic; }
+
+.taxon-authority {
+  font-size: 0.82em;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.caption-sep { margin: 0 0.5em; opacity: 0.55; }
+
+/* --- Carousel --- */
+/* One source of truth for the stage height: the box below reserves it and
+   the photograph inside subtracts the caption from it. */
+.carousel {
+  margin-top: 2rem;
+  --stage-h: min(68vh, 620px);
+  --caption-h: 3.2rem;
+}
+
+.stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* A fixed stage means the filmstrip below never moves as portrait and
+     landscape frames alternate. */
+  height: var(--stage-h);
+}
+
+.slide { display: none; margin: 0; }
+.slide.is-active { display: block; }
+
+.slide img {
+  max-height: calc(var(--stage-h) - var(--caption-h));
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 2px;
+  display: block;
+  margin: 0 auto;
+}
+
+.slide-caption {
+  margin-top: 0.9rem;
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  color: var(--text-dark);
+}
+
+.stage-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-family: var(--font-main);
+  font-size: 2.6rem;
+  line-height: 1;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity 0.2s var(--ease-smooth);
+}
+
+.stage-prev { left: 0; }
+.stage-next { right: 0; }
+
+.stage-nav:hover,
+.stage-nav:focus-visible { opacity: 1; }
+
+/* Spelt out because the browser default draws a filled block on black. */
+.stage-nav:focus-visible,
+.thumb:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.55);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* --- Filmstrip --- */
+.filmstrip {
+  margin-top: 2.2rem;
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.6rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+.filmstrip::-webkit-scrollbar { height: 6px; }
+.filmstrip::-webkit-scrollbar-track { background: transparent; }
+.filmstrip::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 3px;
+}
+
+.thumb {
+  flex: 0 0 auto;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  line-height: 0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.thumb img {
+  width: 84px;
+  height: 105px;
+  object-fit: cover;
+  display: block;
+  /* Everything but the current frame steps back, so the strip reads as
+     context rather than competing with the photograph above it. */
+  opacity: 0.4;
+  filter: saturate(0.7);
+  transition: opacity 0.3s var(--ease-smooth), filter 0.3s var(--ease-smooth);
+}
+
+.thumb:hover img,
+.thumb:focus-visible img { opacity: 0.75; filter: saturate(0.95); }
+.thumb.is-active img { opacity: 1; filter: none; }
+
+.thumb.is-active {
+  outline: 1px solid var(--primary-green);
+  outline-offset: 1px;
+}
+
+.rights-note {
+  margin-top: 3.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(45, 90, 39, 0.18);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 46ch;
+}
+
+.rights-note a { color: var(--accent-green); font-weight: 600; text-decoration: none; }
+.rights-note a:hover { color: var(--primary-green); }
+
+@media (max-width: 800px) {
+  .carousel { --stage-h: min(56vh, 460px); }
+  .stage-nav { font-size: 2rem; padding: 0.3rem 0.4rem; }
+  .thumb img { width: 60px; height: 75px; }
+  .filmstrip { margin-top: 1.6rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thumb img, .stage-nav { transition: none; }
+}

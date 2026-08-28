@@ -1,0 +1,9 @@
+# Original full-resolution photographs.
+# The web-ready copies under img/ are what the site serves; the masters stay
+# out of the repo (they are ~100 MB and GitHub Pages has no use for them).
+# Keep your own backup of this folder — `scripts/build_gallery.py` needs it
+# to regenerate the galleries.
+photos_src/
+
+# macOS
+.DS_Store

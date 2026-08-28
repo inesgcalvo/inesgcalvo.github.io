@@ -1,0 +1,252 @@
+{
+  "title": "Lepidoptera",
+  "kicker": "Field photographs",
+  "intro": "Butterflies photographed in the field, summer 2026. No captive specimens, no baiting — every animal was left exactly where it was found.",
+  "credit": {
+    "creator": "Inés G. Calvo",
+    "creator_ascii": "Ines G. Calvo",
+    "notice": "© 2026 Inés G. Calvo. All rights reserved.",
+    "notice_ascii": "(c) 2026 Ines G. Calvo. All rights reserved.",
+    "usage_terms": "All rights reserved. No reproduction, distribution or reuse without prior written permission from the author.",
+    "web_statement": "https://inesgcalvo.github.io/lepidoptera.html",
+    "contact": "https://inesgcalvo.github.io/contact.html"
+  },
+  "photos": [
+    {
+      "source": "IMG20260525174257.jpg",
+      "slug": "lepidoptera-01",
+      "date": "2026-05-25",
+      "taxon": {
+        "genus": "Melitaea",
+        "qualifier": null,
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
+      },
+      "alt": "Orange and black fritillary resting with open wings among green grass stems."
+    },
+    {
+      "source": "IMG20260530151848.jpg",
+      "slug": "lepidoptera-02",
+      "date": "2026-05-30",
+      "taxon": {
+        "genus": "Melitaea",
+        "qualifier": null,
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
+      },
+      "alt": "Fritillary with closed wings feeding on a magenta knapweed flower."
+    },
+    {
+      "source": "IMG20260603160440.jpg",
+      "slug": "lepidoptera-03",
+      "date": "2026-06-03",
+      "taxon": {
+        "genus": "Melitaea",
+        "qualifier": null,
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
+      },
+      "alt": "Fritillary perched on a purple thistle head above bare, sunlit ground."
+    },
+    {
+      "source": "IMG20260608175658.jpg",
+      "slug": "lepidoptera-04",
+      "date": "2026-06-08",
+      "taxon": null,
+      "alt": "Small dark butterfly with folded wings on a white pompom flower."
+    },
+    {
+      "source": "IMG20260609165426.jpg",
+      "slug": "lepidoptera-05",
+      "date": "2026-06-09",
+      "taxon": {
+        "genus": "Melitaea",
+        "qualifier": null,
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
+      },
+      "alt": "A fritillary and a ladybird sharing the same yellow umbel of tiny flowers."
+    },
+    {
+      "source": "IMG20260609165454.jpg",
+      "slug": "lepidoptera-06",
+      "date": "2026-06-09",
+      "taxon": {
+        "genus": "Melitaea",
+        "qualifier": null,
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
+      },
+      "alt": "Two fritillaries with wings fully spread, feeding side by side on yellow umbels."
+    },
+    {
+      "source": "IMG20260609165509.jpg",
+      "slug": "lepidoptera-07",
+      "date": "2026-06-09",
+      "taxon": {
+        "genus": "Melitaea",
+        "qualifier": null,
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
+      },
+      "alt": "Three fritillaries scattered across a stand of yellow umbellifer flowers."
+    },
+    {
+      "source": "IMG20260610144637.jpg",
+      "slug": "lepidoptera-08",
+      "date": "2026-06-10",
+      "taxon": {
+        "genus": "Melitaea",
+        "qualifier": null,
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
+      },
+      "alt": "Fritillary with wings closed, showing its patterned underside, on a white umbel."
+    },
+    {
+      "source": "IMG20260610144727.jpg",
+      "slug": "lepidoptera-09",
+      "date": "2026-06-10",
+      "taxon": {
+        "genus": "Melitaea",
+        "qualifier": null,
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
+      },
+      "alt": "Dark fritillary seen head-on from behind while feeding on a white umbel."
+    },
+    {
+      "source": "IMG20260610145248.jpg",
+      "slug": "lepidoptera-10",
+      "date": "2026-06-10",
+      "taxon": {
+        "genus": "Melitaea",
+        "qualifier": null,
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
+      },
+      "alt": "Fritillary basking with open wings on the frond of a fern."
+    },
+    {
+      "source": "IMG_20260713_171018_129.jpg",
+      "slug": "lepidoptera-11",
+      "date": "2026-07-13",
+      "taxon": {
+        "genus": "Melanargia",
+        "qualifier": null,
+        "species": "lachesis",
+        "authority": "(Hübner, 1790)"
+      },
+      "alt": "Black and white marbled butterfly feeding on a yellow thistle in dry grassland."
+    },
+    {
+      "source": "IMG_20260715_161906_567.jpg",
+      "slug": "lepidoptera-12",
+      "date": "2026-07-15",
+      "taxon": {
+        "genus": "Melanargia",
+        "qualifier": null,
+        "species": "lachesis",
+        "authority": "(Hübner, 1790)"
+      },
+      "alt": "Marbled butterfly with open wings among purple knapweed heads."
+    },
+    {
+      "source": "IMG_20260715_161935_428.jpg",
+      "slug": "lepidoptera-13",
+      "date": "2026-07-15",
+      "taxon": {
+        "genus": "Melanargia",
+        "qualifier": null,
+        "species": "lachesis",
+        "authority": "(Hübner, 1790)"
+      },
+      "alt": "Marbled butterfly drinking from a purple thistle flower."
+    },
+    {
+      "source": "IMG_20260715_173226_843.jpg",
+      "slug": "lepidoptera-14",
+      "date": "2026-07-15",
+      "taxon": {
+        "genus": "Melanargia",
+        "qualifier": null,
+        "species": "lachesis",
+        "authority": "(Hübner, 1790)"
+      },
+      "alt": "Marbled butterfly with wings folded upright on a purple flower, sky behind."
+    },
+    {
+      "source": "IMG_20260715_173420_231.jpg",
+      "slug": "lepidoptera-15",
+      "date": "2026-07-15",
+      "taxon": {
+        "genus": "Fabriciana",
+        "qualifier": null,
+        "species": null,
+        "authority": null
+      },
+      "alt": "Orange butterfly with folded wings and a long proboscis extended into a yellow thistle."
+    },
+    {
+      "source": "IMG_20260716_160401_322.jpg",
+      "slug": "lepidoptera-16",
+      "date": "2026-07-16",
+      "taxon": {
+        "genus": "Melanargia",
+        "qualifier": null,
+        "species": "lachesis",
+        "authority": "(Hübner, 1790)"
+      },
+      "alt": "Marbled butterfly on a yellow thistle, pine trees and blue sky behind."
+    },
+    {
+      "source": "IMG_20260716_160627_197.jpg",
+      "slug": "lepidoptera-17",
+      "date": "2026-07-16",
+      "taxon": {
+        "genus": "Fabriciana",
+        "qualifier": null,
+        "species": null,
+        "authority": null
+      },
+      "alt": "Fritillary with closed wings clinging to a spiny green flower bud."
+    },
+    {
+      "source": "IMG_20260716_161424_801.jpg",
+      "slug": "lepidoptera-18",
+      "date": "2026-07-16",
+      "taxon": {
+        "genus": "Melanargia",
+        "qualifier": "cf.",
+        "species": "lachesis",
+        "authority": "(Hübner, 1790)"
+      },
+      "alt": "Pale patterned butterfly with wings raised over a yellow thistle."
+    },
+    {
+      "source": "IMG_20260730_170749_203.jpg",
+      "slug": "lepidoptera-19",
+      "date": "2026-07-30",
+      "taxon": {
+        "genus": "Argynnis",
+        "qualifier": "cf.",
+        "species": "paphia",
+        "authority": "(Linnaeus, 1758)"
+      },
+      "alt": "Large orange fritillary with wings fully open on a spiny sea holly flower."
+    },
+    {
+      "source": "IMG_20260730_170805_219.jpg",
+      "slug": "lepidoptera-20",
+      "date": "2026-07-30",
+      "taxon": {
+        "genus": "Argynnis",
+        "qualifier": "cf.",
+        "species": "paphia",
+        "authority": "(Linnaeus, 1758)"
+      },
+      "alt": "Fritillary with wings closed showing a mottled olive underside, on sea holly."
+    }
+  ],
+  "taxon_note": "Determinations are provisional, made from the photographs and from the locality and date, which are known but deliberately recorded nowhere in this repository. 'cf.' marks a tentative species; a bare genus means it was not taken further. Correct them here before publishing — nothing else reads these names."
+}
