@@ -758,12 +758,19 @@ body.page {
    follows the photographs onto black without being touched again. */
 .page-gallery {
   --bg-color:      #0b0b0c;
-  --text-dark:     #ececec;
-  --text-muted:    #8b8b8f;
-  --primary-green: #b9d8ae;  /* lifted off the ink so it reads on black */
-  --accent-green:  #8fc98a;
+  /* Every text token resolves to white here: on these pages the type is
+     one colour and hierarchy comes from size, weight and spacing alone. */
+  --text-dark:     #ffffff;
+  --text-muted:    #ffffff;
+  --primary-green: #ffffff;
+  --accent-green:  #ffffff;
   --rule:          rgba(255, 255, 255, 0.13);
 }
+
+/* Colour no longer marks a link, so an underline has to. */
+.page-gallery .page-body a,
+.page-gallery .page-footer a { text-decoration: underline; text-underline-offset: 0.2em; }
+.page-gallery .back-link { text-decoration: none; }
 
 /* The class sits on <body>; naming html too keeps the overscroll area
    black instead of flashing the site's green behind a bounce scroll. */
@@ -795,7 +802,7 @@ html:has(> .page-gallery) { background-color: #0b0b0c; }
   color: var(--text-muted);
 }
 
-.caption-sep { margin: 0 0.5em; color: var(--text-muted); }
+.caption-sep { margin: 0 0.5em; opacity: 0.55; }
 
 /* --- Carousel --- */
 /* One source of truth for the stage height: the box below reserves it and

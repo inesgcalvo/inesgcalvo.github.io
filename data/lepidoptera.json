@@ -19,8 +19,8 @@
       "taxon": {
         "genus": "Melitaea",
         "qualifier": null,
-        "species": null,
-        "authority": null
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
       },
       "alt": "Orange and black fritillary resting with open wings among green grass stems."
     },
@@ -31,8 +31,8 @@
       "taxon": {
         "genus": "Melitaea",
         "qualifier": null,
-        "species": null,
-        "authority": null
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
       },
       "alt": "Fritillary with closed wings feeding on a magenta knapweed flower."
     },
@@ -43,8 +43,8 @@
       "taxon": {
         "genus": "Melitaea",
         "qualifier": null,
-        "species": null,
-        "authority": null
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
       },
       "alt": "Fritillary perched on a purple thistle head above bare, sunlit ground."
     },
@@ -62,8 +62,8 @@
       "taxon": {
         "genus": "Melitaea",
         "qualifier": null,
-        "species": null,
-        "authority": null
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
       },
       "alt": "A fritillary and a ladybird sharing the same yellow umbel of tiny flowers."
     },
@@ -74,8 +74,8 @@
       "taxon": {
         "genus": "Melitaea",
         "qualifier": null,
-        "species": null,
-        "authority": null
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
       },
       "alt": "Two fritillaries with wings fully spread, feeding side by side on yellow umbels."
     },
@@ -86,8 +86,8 @@
       "taxon": {
         "genus": "Melitaea",
         "qualifier": null,
-        "species": null,
-        "authority": null
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
       },
       "alt": "Three fritillaries scattered across a stand of yellow umbellifer flowers."
     },
@@ -98,8 +98,8 @@
       "taxon": {
         "genus": "Melitaea",
         "qualifier": null,
-        "species": null,
-        "authority": null
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
       },
       "alt": "Fritillary with wings closed, showing its patterned underside, on a white umbel."
     },
@@ -110,8 +110,8 @@
       "taxon": {
         "genus": "Melitaea",
         "qualifier": null,
-        "species": null,
-        "authority": null
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
       },
       "alt": "Dark fritillary seen head-on from behind while feeding on a white umbel."
     },
@@ -122,8 +122,8 @@
       "taxon": {
         "genus": "Melitaea",
         "qualifier": null,
-        "species": null,
-        "authority": null
+        "species": "cinxia",
+        "authority": "(Linnaeus, 1758)"
       },
       "alt": "Fritillary basking with open wings on the frond of a fern."
     },
@@ -133,7 +133,7 @@
       "date": "2026-07-13",
       "taxon": {
         "genus": "Melanargia",
-        "qualifier": "cf.",
+        "qualifier": null,
         "species": "lachesis",
         "authority": "(Hübner, 1790)"
       },
@@ -145,7 +145,7 @@
       "date": "2026-07-15",
       "taxon": {
         "genus": "Melanargia",
-        "qualifier": "cf.",
+        "qualifier": null,
         "species": "lachesis",
         "authority": "(Hübner, 1790)"
       },
@@ -157,7 +157,7 @@
       "date": "2026-07-15",
       "taxon": {
         "genus": "Melanargia",
-        "qualifier": "cf.",
+        "qualifier": null,
         "species": "lachesis",
         "authority": "(Hübner, 1790)"
       },
@@ -169,7 +169,7 @@
       "date": "2026-07-15",
       "taxon": {
         "genus": "Melanargia",
-        "qualifier": "cf.",
+        "qualifier": null,
         "species": "lachesis",
         "authority": "(Hübner, 1790)"
       },
@@ -180,7 +180,7 @@
       "slug": "lepidoptera-15",
       "date": "2026-07-15",
       "taxon": {
-        "genus": "Argynnis",
+        "genus": "Fabriciana",
         "qualifier": null,
         "species": null,
         "authority": null
@@ -193,7 +193,7 @@
       "date": "2026-07-16",
       "taxon": {
         "genus": "Melanargia",
-        "qualifier": "cf.",
+        "qualifier": null,
         "species": "lachesis",
         "authority": "(Hübner, 1790)"
       },
@@ -204,10 +204,10 @@
       "slug": "lepidoptera-17",
       "date": "2026-07-16",
       "taxon": {
-        "genus": "Issoria",
-        "qualifier": "cf.",
-        "species": "lathonia",
-        "authority": "(Linnaeus, 1758)"
+        "genus": "Fabriciana",
+        "qualifier": null,
+        "species": null,
+        "authority": null
       },
       "alt": "Fritillary with closed wings clinging to a spiny green flower bud."
     },
@@ -217,9 +217,9 @@
       "date": "2026-07-16",
       "taxon": {
         "genus": "Melanargia",
-        "qualifier": null,
-        "species": null,
-        "authority": null
+        "qualifier": "cf.",
+        "species": "lachesis",
+        "authority": "(Hübner, 1790)"
       },
       "alt": "Pale patterned butterfly with wings raised over a yellow thistle."
     },
@@ -229,9 +229,9 @@
       "date": "2026-07-30",
       "taxon": {
         "genus": "Argynnis",
-        "qualifier": null,
-        "species": null,
-        "authority": null
+        "qualifier": "cf.",
+        "species": "paphia",
+        "authority": "(Linnaeus, 1758)"
       },
       "alt": "Large orange fritillary with wings fully open on a spiny sea holly flower."
     },
@@ -241,12 +241,12 @@
       "date": "2026-07-30",
       "taxon": {
         "genus": "Argynnis",
-        "qualifier": null,
-        "species": null,
-        "authority": null
+        "qualifier": "cf.",
+        "species": "paphia",
+        "authority": "(Linnaeus, 1758)"
       },
       "alt": "Fritillary with wings closed showing a mottled olive underside, on sea holly."
     }
   ],
-  "taxon_note": "Determinations are provisional and were made from the photographs alone. 'cf.' marks a tentative species; a bare genus means it was not taken further. Correct them here before publishing — nothing else reads these names."
+  "taxon_note": "Determinations are provisional, made from the photographs and from the locality and date, which are known but deliberately recorded nowhere in this repository. 'cf.' marks a tentative species; a bare genus means it was not taken further. Correct them here before publishing — nothing else reads these names."
 }
